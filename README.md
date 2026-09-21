@@ -2,7 +2,7 @@
 
 Interactive, responsive portfolio and curriculum dashboard showcasing my professional experience, academic background, technical skills, and 4 production-grade software engineering systems.
 
-> 🌐 **Live Production Deployment:** [https://luis-gallardo-dashboard.vercel.app](https://luis-gallardo-dashboard.vercel.app) *(or your Vercel URL)*  
+> 🌐 **Live Production Deployment:** [https://lgallardo04.github.io/portfolio-dashboard/](https://lgallardo04.github.io/portfolio-dashboard/)  
 > 📄 **Curriculum Vitae (PDF):** Included directly in this repository as [`Currículum Luis Gallardo.pdf`](./Curr%C3%ADculum%20Luis%20Gallardo.pdf) and downloadable in 1 click from the dashboard.
 
 ---
