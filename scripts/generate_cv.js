@@ -61,12 +61,12 @@ doc.text('LUIS GALLARDO', 75, 16);
 doc.setFont('helvetica', 'bold');
 doc.setFontSize(11);
 doc.setTextColor(...C_CYAN);
-doc.text('INGENIERO DE SOFTWARE / ANALISTA DE SISTEMAS', 75, 23);
+doc.text('ANALISTA DE SISTEMAS & FULL-STACK DEVELOPER', 75, 23);
 
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(9);
 doc.setTextColor(...C_TEXT_MUTED);
-doc.text('Full-Stack Developer | Arquitectura Web, Móvil & Sistemas de Gestión', 75, 29);
+doc.text('IUTEPI (En Pasantías / Por Graduarse) | Arquitectura Web, Móvil & Sistemas de Gestión', 75, 29);
 
 doc.setFontSize(8.5);
 doc.setTextColor(...C_DARK_NAVY);
@@ -170,7 +170,7 @@ my += 6;
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(8.5);
 doc.setTextColor(...C_TEXT_MAIN);
-const profileText = "Ingeniero de Software y Analista de Sistemas con sólida experiencia en la arquitectura, desarrollo e implantación de sistemas web, móviles y empresariales de alto rendimiento. Especializado en el ecosistema Full-Stack moderno con Next.js, React, TypeScript, Python (FastAPI), PostgreSQL y Supabase.\n\nDemostrada capacidad para liderar proyectos de software sociotecnológico y plataformas comerciales de punto de venta (POS) e inventario, diseñando desde la estructura relacional con seguridad por fila (RLS) y APIs REST hasta interfaces de usuario intuitivas y responsivas de alta fidelidad. Enfocado en resolver problemas complejos mediante código limpio, estándares modernos de seguridad y metodologías ágiles.";
+const profileText = "Analista de Sistemas (en fase final de pasantías ocupacionales en el IUTEPI, culminando el 6to semestre para la obtención del título de T.S.U.) y Desarrollador Full-Stack con sólida experiencia práctica en la arquitectura, desarrollo e implantación de sistemas web, móviles y empresariales de alto rendimiento. Especializado en Next.js, React, TypeScript, Python (FastAPI), PostgreSQL y Supabase.\n\nDemostrada capacidad para liderar proyectos de software sociotecnológico y plataformas comerciales de punto de venta (POS) e inventario, diseñando desde la estructura relacional con seguridad por fila (RLS) y APIs REST hasta interfaces multiplataforma (Web, PWA y Android APK con Capacitor). Enfocado en resolver problemas complejos mediante código limpio, estándares modernos de seguridad y metodologías ágiles.";
 const profileLines = doc.splitTextToSize(profileText, 125);
 doc.text(profileLines, 75, my);
 my += (profileLines.length * 3.8) + 6;
@@ -512,34 +512,15 @@ m2y += 6;
 drawSectionTitle('EDUCACIÓN & FORMACIÓN PROFESIONAL', 75, m2y);
 m2y += 7;
 
-// Edu 1: UPT
+// Edu 1: IUTEPI (Fase Final: Pasantías / Por Graduarse - Carrera de 6 Semestres)
 doc.setFont('helvetica', 'bold');
-doc.setFontSize(9);
-doc.setTextColor(...C_DARK_NAVY);
-doc.text('P.N.F. Ingeniería Informática', 75, m2y);
-doc.setFont('helvetica', 'normal');
-doc.setFontSize(8);
-doc.setTextColor(...C_TEXT_MUTED);
-doc.text('2020 — 2024', 178, m2y);
-m2y += 4;
-doc.setFont('helvetica', 'normal');
-doc.setFontSize(8);
-doc.setTextColor(...C_CYAN);
-doc.text('Universidad Politécnica Territorial del estado Portuguesa "J.J. Montilla"', 75, m2y);
-m2y += 3.8;
-doc.setTextColor(...C_TEXT_MAIN);
-doc.text('Especialización en arquitectura de software, bases de datos relacionales y proyectos sociotecnológicos.', 75, m2y);
-m2y += 6;
-
-// Edu 2: IUTEPI
-doc.setFont('helvetica', 'bold');
-doc.setFontSize(9);
+doc.setFontSize(9.5);
 doc.setTextColor(...C_DARK_NAVY);
 doc.text('T.S.U. Análisis de Sistemas', 75, m2y);
-doc.setFont('helvetica', 'normal');
-doc.setFontSize(8);
-doc.setTextColor(...C_TEXT_MUTED);
-doc.text('2024 — Presente', 174, m2y);
+doc.setFont('helvetica', 'bold');
+doc.setFontSize(7.5);
+doc.setTextColor(...C_EMERALD);
+doc.text('En Pasantías — 6to Semestre (Por Graduarse)', 198, m2y, { align: 'right' });
 m2y += 4;
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(8);
@@ -547,18 +528,41 @@ doc.setTextColor(...C_CYAN);
 doc.text('Instituto Universitario de Tecnología Para la Informática (IUTEPI) - Acarigua', 75, m2y);
 m2y += 3.8;
 doc.setTextColor(...C_TEXT_MAIN);
-doc.text('Modelado de datos, análisis de requerimientos, diseño de algoritmos y metodologías ágiles (Scrum).', 75, m2y);
-m2y += 6;
+const iutepiDesc = "Carrera de 6 semestres en total. Actualmente en fase final de pasantías ocupacionales culminando el 6to semestre a punto de graduarme para la obtención del título de T.S.U. Especialización en levantamiento y análisis de requerimientos, modelado de bases de datos relacionales, metodologías ágiles (Scrum) y desarrollo web full-stack.";
+const iutepiLines = doc.splitTextToSize(iutepiDesc, 125);
+doc.text(iutepiLines, 75, m2y);
+m2y += (iutepiLines.length * 3.6) + 4;
+
+// Edu 2: UPTP (Estudios hasta 3er semestre - Inconcluso)
+doc.setFont('helvetica', 'bold');
+doc.setFontSize(9.5);
+doc.setTextColor(...C_DARK_NAVY);
+doc.text('P.N.F. Ingeniería Informática', 75, m2y);
+doc.setFont('helvetica', 'bold');
+doc.setFontSize(7.5);
+doc.setTextColor(...C_TEXT_MUTED);
+doc.text('3 Semestres Cursados (Inconcluso)', 198, m2y, { align: 'right' });
+m2y += 4;
+doc.setFont('helvetica', 'normal');
+doc.setFontSize(8);
+doc.setTextColor(...C_CYAN);
+doc.text('Universidad Politécnica Territorial del estado Portuguesa "J.J. Montilla" (UPTP)', 75, m2y);
+m2y += 3.8;
+doc.setTextColor(...C_TEXT_MAIN);
+const uptpDesc = "Estudios universitarios cursados y aprobados hasta el 3er semestre (carrera no concluida / retiro voluntario para dedicación técnica). Formación inicial en matemática discreta, lógica computacional, algoritmos, arquitectura de computadores, redes y proyectos sociotecnológicos.";
+const uptpLines = doc.splitTextToSize(uptpDesc, 125);
+doc.text(uptpLines, 75, m2y);
+m2y += (uptpLines.length * 3.6) + 4;
 
 // Edu 3: Certificaciones
 doc.setFont('helvetica', 'bold');
-doc.setFontSize(9);
+doc.setFontSize(9.5);
 doc.setTextColor(...C_DARK_NAVY);
-doc.text('Certificación Profesional en Desarrollo Web Full-Stack', 75, m2y);
+doc.text('Desarrollo Web Full-Stack', 75, m2y);
 doc.setFont('helvetica', 'normal');
-doc.setFontSize(8);
+doc.setFontSize(7.5);
 doc.setTextColor(...C_TEXT_MUTED);
-doc.text('Certificado', 180, m2y);
+doc.text('Certificado Profesional', 198, m2y, { align: 'right' });
 m2y += 4;
 doc.setFont('helvetica', 'normal');
 doc.setFontSize(8);

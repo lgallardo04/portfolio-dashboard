@@ -10,7 +10,7 @@
 endobj
 4 0 obj
 <<
-/Length 14271
+/Length 14405
 >>
 stream
 0.5670000000000001 w
@@ -33,14 +33,14 @@ BT
 12.6499999999999986 TL
 0. 0.659 0.8 rg
 212.5984251968504282 776.69314960629913 Td
-(INGENIERO DE SOFTWARE / ANALISTA DE SISTEMAS) Tj
+(ANALISTA DE SISTEMAS & FULL-STACK DEVELOPER) Tj
 ET
 BT
 /F1 9 Tf
 10.3499999999999996 TL
 0.392 0.455 0.545 rg
 212.5984251968504282 759.6852755905511003 Td
-(Full-Stack Developer | Arquitectura Web, Móvil & Sistemas de Gestión) Tj
+(IUTEPI \(En Pasantías / Por Graduarse\) | Arquitectura Web, Móvil & Sistemas de Gestión) Tj
 ET
 BT
 /F1 8.5 Tf
@@ -426,60 +426,61 @@ BT
 9.7749999999999986 TL
 0.118 0.161 0.231 rg
 212.5984251968504282 683.1498425196850803 Td
-(Ingeniero de Software y Analista de Sistemas con sólida experiencia en la arquitectura,) Tj
-T* (desarrollo e implantación de sistemas web, móviles y empresariales de alto rendimiento.) Tj
-T* (Especializado en el ecosistema Full-Stack moderno con Next.js, React, TypeScript, Python) Tj
+(Analista de Sistemas \(en fase final de pasantías ocupacionales en el IUTEPI, culminando el) Tj
+T* (6to semestre para la obtención del título de T.S.U.\) y Desarrollador Full-Stack con sólida) Tj
+T* (experiencia práctica en la arquitectura, desarrollo e implantación de sistemas web, móviles y) Tj
+T* (empresariales de alto rendimiento. Especializado en Next.js, React, TypeScript, Python) Tj
 T* (\(FastAPI\), PostgreSQL y Supabase.) Tj
 T* () Tj
 T* (Demostrada capacidad para liderar proyectos de software sociotecnológico y plataformas) Tj
 T* (comerciales de punto de venta \(POS\) e inventario, diseñando desde la estructura relacional) Tj
-T* (con seguridad por fila \(RLS\) y APIs REST hasta interfaces de usuario intuitivas y responsivas) Tj
-T* (de alta fidelidad. Enfocado en resolver problemas complejos mediante código limpio,) Tj
-T* (estándares modernos de seguridad y metodologías ágiles.) Tj
+T* (con seguridad por fila \(RLS\) y APIs REST hasta interfaces multiplataforma \(Web, PWA y) Tj
+T* (Android APK con Capacitor\). Enfocado en resolver problemas complejos mediante código) Tj
+T* (limpio, estándares modernos de seguridad y metodologías ágiles.) Tj
 ET
 BT
 /F2 11 Tf
 12.6499999999999986 TL
 0.059 0.09 0.165 rg
-212.5984251968504282 558.42543307086612 Td
+212.5984251968504282 547.6537795275589815 Td
 (PROYECTOS DESTACADOS DE INGENIERÍA) Tj
 ET
 0. 0.66 0.8 RG
 2.2677165354330713 w
-212.5984251968504282 554.1734645669290558 m
-283.4645669291338663 554.1734645669290558 l
+212.5984251968504282 543.4018110236219172 m
+283.4645669291338663 543.4018110236219172 l
 S
 0.89 0.91 0.94 RG
 0.8503937007874016 w
-283.4645669291338663 554.1734645669290558 m
-566.9291338582677326 554.1734645669290558 l
+283.4645669291338663 543.4018110236219172 m
+566.9291338582677326 543.4018110236219172 l
 S
 BT
 /F2 9.5 Tf
 10.9249999999999989 TL
 0.059 0.09 0.165 rg
-212.5984251968504282 538.5829133858267141 Td
+212.5984251968504282 527.8112598425195756 Td
 (CDI - Sistema Integral de Gestión Hospitalaria) Tj
 ET
 BT
 /F2 8 Tf
 9.1999999999999993 TL
 0.063 0.584 0.365 rg
-453.5433070866142202 538.5829133858267141 Td
+453.5433070866142202 527.8112598425195756 Td
 (Web / PWA / Android APK) Tj
 ET
 BT
 /F3 8 Tf
 9.1999999999999993 TL
 0. 0.659 0.8 rg
-212.5984251968504282 527.2443307086614368 Td
+212.5984251968504282 516.4726771653542983 Td
 (FastAPI \(Python\), SQLAlchemy, PostgreSQL/Supabase, React, TypeScript, Capacitor) Tj
 ET
 BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 515.9057480314959321 Td
+212.5984251968504282 505.1340944881889641 Td
 (• Diseñó y desarrolló una plataforma hospitalaria integral de 24 módulos clínicos para Centros de) Tj
 T* (Diagnóstico Integral.) Tj
 ET
@@ -487,7 +488,7 @@ BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 495.4962992125983874 Td
+212.5984251968504282 484.7246456692913057 Td
 (• Implementó el módulo de Triaje de Urgencias con el cálculo automatizado del puntaje internacional) Tj
 T* (NEWS2 \(National Early Warning Score\) y clasificación Manchester.) Tj
 ET
@@ -495,7 +496,7 @@ BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 475.086850393700729 Td
+212.5984251968504282 464.3151968503937042 Td
 (• Creó visor de imágenes radiológicas DICOM interactivo \(RIS/PACS\), odontograma anatómico FDI) Tj
 T* (y generación de récipes médicos oficiales con código QR y validación digital.) Tj
 ET
@@ -503,7 +504,7 @@ BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 454.6774015748031275 Td
+212.5984251968504282 443.9057480314960458 Td
 (• Arquitectura híbrida offline-first con sincronización reactiva local y empaquetado nativo para) Tj
 T* (Android mediante Capacitor.) Tj
 ET
@@ -511,28 +512,28 @@ BT
 /F2 9.5 Tf
 10.9249999999999989 TL
 0.059 0.09 0.165 rg
-212.5984251968504282 425.7640157480315111 Td
+212.5984251968504282 414.9923622047244294 Td
 (Araure Tricentenaria — Censo Comunal & BI de Salud) Tj
 ET
 BT
 /F2 8 Tf
 9.1999999999999993 TL
 0. 0.659 0.8 rg
-476.2204724409449454 425.7640157480315111 Td
+476.2204724409449454 414.9923622047244294 Td
 (Producción Vercel) Tj
 ET
 BT
 /F3 8 Tf
 9.1999999999999993 TL
 0. 0.659 0.8 rg
-212.5984251968504282 414.42543307086612 Td
+212.5984251968504282 403.6537795275590952 Td
 (Next.js 14 \(App Router\), Prisma ORM, PostgreSQL \(Supabase\), Tailwind, NextAuth, Chart.js) Tj
 ET
 BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 403.0868503937007858 Td
+212.5984251968504282 392.315196850393761 Td
 (• Sistema en producción desplegado en Vercel para la digitalización y gestión del censo de la) Tj
 T* (Comuna Escuela Araure Tricentenaria.) Tj
 ET
@@ -540,7 +541,7 @@ BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 382.6774015748031843 Td
+212.5984251968504282 371.9057480314961026 Td
 (• Módulo de Business Intelligence demográfico con pirámide poblacional en tiempo real y mapa) Tj
 T* (estadístico de prevalencia de patologías crónicas y demanda de medicamentos.) Tj
 ET
@@ -548,7 +549,7 @@ BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 362.2679527559055828 Td
+212.5984251968504282 351.4962992125985011 Td
 (• Control de acceso por roles \(RBAC\) granular para Administradores, Jefes de Comunidad y Jefes) Tj
 T* (de Calle con auditoría.) Tj
 ET
@@ -556,35 +557,35 @@ BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 341.8585039370079812 Td
+212.5984251968504282 331.0868503937008995 Td
 (• Generación de reportes institucionales y carnets de censo en PDF automatizados.) Tj
 ET
 BT
 /F2 9.5 Tf
 10.9249999999999989 TL
 0.059 0.09 0.165 rg
-212.5984251968504282 323.1498425196850803 Td
+212.5984251968504282 312.3781889763780555 Td
 (Urbanización Los Robles — Catastro & Garita) Tj
 ET
 BT
 /F2 8 Tf
 9.1999999999999993 TL
 0.063 0.584 0.365 rg
-476.2204724409449454 323.1498425196850803 Td
+476.2204724409449454 312.3781889763780555 Td
 (Next.js 16 / Supabase) Tj
 ET
 BT
 /F3 8 Tf
 9.1999999999999993 TL
 0. 0.659 0.8 rg
-212.5984251968504282 311.811259842519803 Td
+212.5984251968504282 301.0396062992127781 Td
 (Next.js 16, React 19, TypeScript, PostgreSQL Supabase \(RLS\), Recharts, Playwright E2E) Tj
 ET
 BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 300.472677165354412 Td
+212.5984251968504282 289.7010236220473871 Td
 (• Sistema integral de gestión comunitaria, catastro parcelario, registro de incidencias ciudadanas y) Tj
 T* (bitácora de garita.) Tj
 ET
@@ -592,7 +593,7 @@ BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 280.0632283464568673 Td
+212.5984251968504282 269.2915748031497287 Td
 (• Control estricto de seguridad perimetral para registro de ingresos vehiculares/peatonales) Tj
 T* (impidiendo duplicidad de ingresos abiertos.) Tj
 ET
@@ -600,7 +601,7 @@ BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 259.6537795275592089 Td
+212.5984251968504282 248.882125984252184 Td
 (• Módulo financiero de condominio bimonetario \(USD / VES con tasa oficial BCV\), conciliación e) Tj
 T* (imputación contable FIFO de cuotas.) Tj
 ET
@@ -608,7 +609,7 @@ BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 239.2443307086615505 Td
+212.5984251968504282 228.4726771653545256 Td
 (• Base de datos relacional con 19 tablas canónicas y políticas de Row Level Security \(RLS\)) Tj
 T* (estrictas.) Tj
 ET
@@ -631,7 +632,7 @@ endobj
 endobj
 6 0 obj
 <<
-/Length 11047
+/Length 11515
 >>
 stream
 0.8503937007874016 w
@@ -1059,80 +1060,85 @@ S
 566.9291338582677326 333.0711023622046696 l
 S
 BT
-/F2 9 Tf
-10.3499999999999996 TL
+/F2 9.5 Tf
+10.9249999999999989 TL
 0.059 0.09 0.165 rg
 212.5984251968504282 317.480551181102328 Td
-(P.N.F. Ingeniería Informática) Tj
+(T.S.U. Análisis de Sistemas) Tj
 ET
 BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.392 0.455 0.545 rg
-504.5669291338583093 317.480551181102328 Td
-(2020 — 2024) Tj
+/F2 7.5 Tf
+8.625 TL
+0.063 0.584 0.365 rg
+397.4598425196850258 317.480551181102328 Td
+(En Pasantías — 6to Semestre \(Por Graduarse\)) Tj
 ET
 BT
 /F1 8 Tf
 9.1999999999999993 TL
 0. 0.659 0.8 rg
 212.5984251968504282 306.1419685039369369 Td
-(Universidad Politécnica Territorial del estado Portuguesa "J.J. Montilla") Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.118 0.161 0.231 rg
-212.5984251968504282 295.3703149606297984 Td
-(Especialización en arquitectura de software, bases de datos relacionales y proyectos sociotecnológicos.) Tj
-ET
-BT
-/F2 9 Tf
-10.3499999999999996 TL
-0.059 0.09 0.165 rg
-212.5984251968504282 278.3624409448817687 Td
-(T.S.U. Análisis de Sistemas) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0.392 0.455 0.545 rg
-493.2283464566929752 278.3624409448817687 Td
-(2024 — Presente) Tj
-ET
-BT
-/F1 8 Tf
-9.1999999999999993 TL
-0. 0.659 0.8 rg
-212.5984251968504282 267.0238582677163777 Td
 (Instituto Universitario de Tecnología Para la Informática \(IUTEPI\) - Acarigua) Tj
 ET
 BT
 /F1 8 Tf
 9.1999999999999993 TL
 0.118 0.161 0.231 rg
-212.5984251968504282 256.2522047244093528 Td
-(Modelado de datos, análisis de requerimientos, diseño de algoritmos y metodologías ágiles \(Scrum\).) Tj
+212.5984251968504282 295.3703149606297984 Td
+(Carrera de 6 semestres en total. Actualmente en fase final de pasantías ocupacionales culminando) Tj
+T* (el 6to semestre a punto de graduarme para la obtención del título de T.S.U. Especialización en) Tj
+T* (levantamiento y análisis de requerimientos, modelado de bases de datos relacionales, metodologías) Tj
+T* (ágiles \(Scrum\) y desarrollo web full-stack.) Tj
 ET
 BT
-/F2 9 Tf
-10.3499999999999996 TL
+/F2 9.5 Tf
+10.9249999999999989 TL
 0.059 0.09 0.165 rg
-212.5984251968504282 239.2443307086613231 Td
-(Certificación Profesional en Desarrollo Web Full-Stack) Tj
+212.5984251968504282 243.2128346456692043 Td
+(P.N.F. Ingeniería Informática) Tj
 ET
 BT
-/F1 8 Tf
-9.1999999999999993 TL
+/F2 7.5 Tf
+8.625 TL
 0.392 0.455 0.545 rg
-510.2362204724410049 239.2443307086613231 Td
-(Certificado) Tj
+434.3598425196851167 243.2128346456692043 Td
+(3 Semestres Cursados \(Inconcluso\)) Tj
 ET
 BT
 /F1 8 Tf
 9.1999999999999993 TL
 0. 0.659 0.8 rg
-212.5984251968504282 227.9057480314959321 Td
+212.5984251968504282 231.8742519685038133 Td
+(Universidad Politécnica Territorial del estado Portuguesa "J.J. Montilla" \(UPTP\)) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.118 0.161 0.231 rg
+212.5984251968504282 221.1025984251966747 Td
+(Estudios universitarios cursados y aprobados hasta el 3er semestre \(carrera no concluida / retiro) Tj
+T* (voluntario para dedicación técnica\). Formación inicial en matemática discreta, lógica computacional,) Tj
+T* (algoritmos, arquitectura de computadores, redes y proyectos sociotecnológicos.) Tj
+ET
+BT
+/F2 9.5 Tf
+10.9249999999999989 TL
+0.059 0.09 0.165 rg
+212.5984251968504282 179.149842519684853 Td
+(Desarrollo Web Full-Stack) Tj
+ET
+BT
+/F1 7.5 Tf
+8.625 TL
+0.392 0.455 0.545 rg
+486.3348425196851395 179.149842519684853 Td
+(Certificado Profesional) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0. 0.659 0.8 rg
+212.5984251968504282 167.8112598425194619 Td
 (Udemy Academy — HTML5, CSS3, JavaScript ES6+, PHP, MySQL & REST APIs) Tj
 ET
 BT
@@ -1314,7 +1320,7 @@ endobj
 21 0 obj
 <<
 /Producer (jsPDF 4.2.1)
-/CreationDate (D:20260920233629-04'00')
+/CreationDate (D:20260920235939-04'00')
 >>
 endobj
 22 0 obj
@@ -1328,35 +1334,35 @@ endobj
 xref
 0 23
 0000000000 65535 f 
-0000025713 00000 n 
-0000027538 00000 n 
+0000026315 00000 n 
+0000028140 00000 n 
 0000000015 00000 n 
 0000000152 00000 n 
-0000014476 00000 n 
-0000014613 00000 n 
-0000025776 00000 n 
-0000025901 00000 n 
-0000026031 00000 n 
-0000026164 00000 n 
-0000026302 00000 n 
-0000026426 00000 n 
-0000026555 00000 n 
-0000026687 00000 n 
-0000026823 00000 n 
-0000026951 00000 n 
-0000027078 00000 n 
-0000027207 00000 n 
-0000027340 00000 n 
-0000027442 00000 n 
-0000027788 00000 n 
-0000027874 00000 n 
+0000014610 00000 n 
+0000014747 00000 n 
+0000026378 00000 n 
+0000026503 00000 n 
+0000026633 00000 n 
+0000026766 00000 n 
+0000026904 00000 n 
+0000027028 00000 n 
+0000027157 00000 n 
+0000027289 00000 n 
+0000027425 00000 n 
+0000027553 00000 n 
+0000027680 00000 n 
+0000027809 00000 n 
+0000027942 00000 n 
+0000028044 00000 n 
+0000028390 00000 n 
+0000028476 00000 n 
 trailer
 <<
 /Size 23
 /Root 22 0 R
 /Info 21 0 R
-/ID [ <B3C2DB6DC5D72706B7DA57BEB8267138> <B3C2DB6DC5D72706B7DA57BEB8267138> ]
+/ID [ <3EA5EE4BE13828FF2C82845A898E615E> <3EA5EE4BE13828FF2C82845A898E615E> ]
 >>
 startxref
-27978
+28580
 %%EOF
