@@ -1,82 +1,94 @@
 /* ==========================================================================
-   CV DASHBOARD INTERACTIVE CONTROLLER - LUIS GALLARDO
+   CV & PORTFOLIO DASHBOARD CONTROLLER - LUIS GALLARDO
    ========================================================================== */
 
-// 1. DICTIONARY TRANSLATIONS (BILINGUAL SYSTEM)
+// 1. DICTIONARY TRANSLATIONS (BILINGUAL SYSTEM: ES / EN)
 const translations = {
     es: {
-        sidebar_title: "Analista / Programador",
+        sidebar_title: "Ingeniero de Software / Analista",
+        btn_download_cv: "Descargar CV (PDF)",
         menu_overview: "Resumen",
         menu_experience: "Trayectoria",
         menu_education: "Formación",
         menu_skills: "Habilidades",
         menu_portfolio: "Sistemas",
         header_main_title: "Panel de Control Profesional",
-        header_sub_title: "Currículum & Sistemas Implementados por Luis Gallardo",
+        header_sub_title: "Currículum & Sistemas de Software por Luis Gallardo",
         status_active: "Disponible para proyectos",
-        card_title: "Analista de Sistemas & Programador",
+        card_title: "Ingeniero de Software / Analista Full-Stack",
         info_age: "Edad",
         info_years: "Años",
         info_id: "Cédula",
         info_birth: "Nacimiento",
         info_loc: "Ubicación",
         bio_header: "Perfil Profesional",
-        bio_p1: "Soy un analista de sistemas y programador altamente motivado y apasionado. Cuento con una sólida capacidad para trabajar en equipo, tomar decisiones lógicas y resolver problemas complejos de forma ágil, adaptándome al cambio y en constante evolución.",
-        bio_p2: "A lo largo de mi carrera académica y profesional, he enfocado mis esfuerzos en el desarrollo de soluciones web completas (Full-Stack), desde la infraestructura de bases de datos hasta la interfaz del usuario. He liderado con éxito la automatización de censos comunales y la creación de plataformas de comercio electrónico robustas.",
-        stat_projects: "Sistemas creados",
-        stat_degrees: "Títulos / Carreras",
-        stat_responsive: "Responsive UI",
+        bio_p1: "Ingeniero de Software y Analista de Sistemas enfocado en la arquitectura, desarrollo e implantación de soluciones Full-Stack modernas (Next.js, React, TypeScript, Python FastAPI, PostgreSQL y Supabase). Especialista en diseñar plataformas escalables tanto de ámbito comercial (punto de venta POS, inventario, e-commerce) como de misión crítica en salud comunitaria e institucional.",
+        bio_p2: "A lo largo de mi trayectoria he liderado con éxito el ciclo de vida completo de 4 sistemas de producción empresarial e institucional: desde el diseño relacional con seguridad por fila (RLS) y APIs REST de alto rendimiento hasta interfaces multiplataforma (Web, PWA Offline-First y Android nativo vía Capacitor) con altos estándares de usabilidad, accesibilidad y pruebas automatizadas.",
+        stat_projects: "Sistemas en producción",
+        stat_degrees: "Títulos Universitarios",
+        stat_responsive: "Mobile-First & PWA",
         portfolio_summary_header: "Sistemas Relevantes Implementados",
-        summary_roble: "Plataforma e-commerce para Bodegón. Frontend Next.js, API en FastAPI, base de datos PostgreSQL.",
-        summary_araure: "Sistema de Censo Comunal. Next.js 14, ORM Prisma, Supabase y gráficos BI dinámicos.",
-        summary_fitness: "Landing page corporativa para Centro de Entrenamiento. HTML5, CSS3 Grid y Javascript.",
-        summary_tikios: "Diseño de interfaz deportiva y estructuración de redes sociales con enfoque corporativo.",
-        exp_roble_role: "Encargado de Caja y Establecimiento",
-        exp_roble_desc: "Responsable directo del área de caja, control de facturación y arqueos de fondos. Encargado del establecimiento como tal, coordinando la logística, supervisión de personal, inventario y el correcto funcionamiento operativo general del local.",
+        summary_cdi: "Sistema Hospitalario Multiplataforma (Web/PWA/Android). 24 módulos clínicos, Triaje NEWS2, visor DICOM y récipes con QR. FastAPI + Supabase.",
+        summary_araure: "Sistema de Censo Comunal en producción activa (Vercel). Next.js 14, ORM Prisma, PostgreSQL y Business Intelligence demográfico.",
+        summary_robles: "Gestión Comunitaria, Catastro & Garita. Next.js 16, Supabase RLS, control de acceso vehicular estricto y condominio bimonetario FIFO.",
+        summary_roble: "Plataforma e-commerce y Punto de Venta (POS) para Bodegón. Backend FastAPI, frontend Next.js, PostgreSQL y confirmación de Pago Móvil.",
+        exp_roble_role: "Encargado General de Operaciones & Desarrollador POS / E-Commerce",
+        exp_roble_desc: "Responsable directo de la gestión operativa, supervisión de personal, inventario físico y arqueo de fondos diario. Diseñó, programó e implementó de manera autónoma la plataforma de ventas, catálogo digital y punto de venta POS en FastAPI, Next.js y PostgreSQL, optimizando el despacho e integrando facturación bimonetaria (USD/VES) sin discrepancias cambiarias.",
+        exp_comun_role: "Ingeniero de Software Principal & Consultor Técnico",
+        exp_comun_company: "Iniciativas Sociotecnológicas y de Salud (Portuguesa, VE)",
+        exp_comun_desc: "Lideró la arquitectura, desarrollo e implantación de sistemas sociotecnológicos de alto impacto comunitario: el sistema hospitalario integral CDI Salud Integral (24 módulos clínicos, triaje NEWS2 y PWA/Android), el sistema de censo y BI demográfico Araure Tricentenaria desplegado en producción en Vercel, y la plataforma de gestión urbanística y condominio Urbanización Los Robles con Supabase RLS y Next.js 16.",
+        exp_mango_role: "Auxiliar Integral & Soporte Técnico POS",
+        exp_mango_desc: "Asistencia operativa multifuncional en atención al cliente, logística interna, y soporte directo a los sistemas informáticos de ventas e inventario, colaborando en la resolución de incidentes técnicos en terminales POS.",
+        exp_hiper_role: "Operador de Caja y Transacciones Masivas",
+        exp_hiper_desc: "Gestión y registro de transacciones comerciales masivas en sistemas de punto de venta, cuadre de caja de alta precisión diaria, atención oportuna al cliente y manejo ágil de múltiples formas de pago (moneda nacional, divisas y transacciones electrónicas).",
         tag_cash: "Control de Caja",
         tag_ops: "Gestión Operativa",
-        tag_customer: "Atención al Cliente",
-        tag_supervision: "Supervisión de Tienda",
-        tag_logistics: "Logística",
-        exp_mango_role: "Auxiliar Integral de Tienda",
-        exp_mango_desc: "Asistencia operativa multifuncional en atención al cliente, logística interna, y soporte directo a los sistemas informáticos de ventas e inventario, colaborando en la resolución de incidentes técnicos en los terminales de punto de venta.",
-        exp_hiper_role: "Cajero Profesional",
-        exp_hiper_desc: "Gestión y registro de transacciones comerciales masivas en sistemas de punto de venta, cuadre de caja de alta precisión diaria, atención oportuna al cliente y manejo ágil de múltiples formas de pago (moneda nacional, divisas y transacciones electrónicas).",
-        edu_upt_inst: "Universidad UPT Portuguesa",
+        edu_upt_inst: "Universidad UPT Portuguesa \"J.J. Montilla\"",
         edu_upt_title: "P.N.F. Ingeniería Informática",
-        edu_upt_desc: "Estudios enfocados en la arquitectura de redes, algoritmos, bases de datos avanzadas, ingeniería de software y desarrollo de proyectos sociotecnológicos aplicados a necesidades comunales reales.",
+        edu_upt_desc: "Estudios enfocados en la arquitectura de redes, algoritmos avanzados, ingeniería de software, bases de datos relacionales y diseño de proyectos sociotecnológicos aplicados a necesidades comunales y de salud reales.",
         edu_iutepi_inst: "Instituto IUTEPI - Acarigua",
         edu_iutepi_title: "T.S.U. Análisis de Sistemas",
-        edu_iutepi_desc: "Estudios dedicados al análisis y diseño de flujos informáticos, diseño relacional de datos, metodologías ágiles de desarrollo (Scrum) y programación orientada a objetos en entornos web y de escritorio.",
-        edu_iutepi_date: "2024 - Actual",
-        edu_udemy_title: "Desarrollo Web Completo",
-        edu_udemy_desc: "Certificación enfocada en el desarrollo de aplicaciones web dinámicas y adaptativas utilizando lenguajes core del desarrollo web tradicional y relacional.",
+        edu_iutepi_desc: "Formación orientada al modelado de datos, análisis de requerimientos de negocio, diseño de algoritmos, metodologías ágiles de desarrollo (Scrum) y programación orientada a objetos en entornos web y empresariales.",
+        edu_iutepi_date: "2024 - Presente",
+        edu_udemy_title: "Desarrollo Web Full-Stack Completo",
+        edu_udemy_desc: "Certificación profesional en desarrollo de aplicaciones web dinámicas y adaptativas de alto rendimiento utilizando tecnologías core del ecosistema web moderno.",
         edu_fermin_inst: "U.E. Colegio Privado \"Fermín Toro\"",
         edu_fermin_title: "Bachiller en Ciencias",
-        edu_fermin_desc: "Formación académica integral de nivel medio diversificado, sentando las bases científicas y matemáticas fundamentales para las ciencias de la computación.",
+        edu_fermin_desc: "Formación académica integral de nivel medio diversificado, sentando las bases científicas y lógico-matemáticas fundamentales para las ciencias de la computación.",
         skills_tech: "Habilidades Técnicas",
         skills_soft: "Habilidades Blandas",
         skills_langs: "Idiomas",
-        soft_proactive: "Proactivo",
+        soft_proactive: "Liderazgo & Proactividad",
         soft_teamwork: "Trabajo en Equipo",
-        soft_mind: "Mente Abierta",
-        soft_problem: "Resolución de Problemas",
+        soft_mind: "Pensamiento Lógico y Analítico",
+        soft_problem: "Resolución Ágil de Problemas",
         soft_adapt: "Adaptación al Cambio",
         lang_es: "Español",
         lang_es_lvl: "Nativo",
         lang_en: "Inglés",
-        lang_en_lvl: "Intermedio",
+        lang_en_lvl: "Intermedio (Técnico / Documentación)",
         portfolio_header: "Portafolio Interactivo de Sistemas",
-        portfolio_sub: "Ejecuta y experimenta simulaciones en tiempo real de los sistemas web reales desarrollados por Luis Gallardo.",
-        roble_search_placeholder: "Buscar productos en Roble Market...",
-        roble_cart_title: "Tu Pedido",
-        roble_cart_empty: "El carrito está vacío.",
-        roble_subtotal: "Subtotal",
-        roble_delivery: "Envío / Delivery",
-        roble_total: "Total General",
-        roble_opt_pickup: "Retirar en tienda",
-        roble_opt_delivery: "Delivery (+$2.50)",
-        roble_btn_pay: "Proceder a Pagar",
+        portfolio_sub: "Explora y ejecuta simulaciones interactivas en tiempo real de los 4 sistemas de ingeniería desarrollados por Luis Gallardo.",
+        cdi_triage_title: "Triaje de Urgencias Clínico (NEWS2)",
+        cdi_triage_desc: "Ingresa o modifica los signos vitales del paciente para calcular automáticamente el puntaje National Early Warning Score (NEWS2) y la clasificación de riesgo médico recomendada:",
+        cdi_label_pa: "Presión Arterial Sistólica",
+        cdi_label_fc: "Frecuencia Cardíaca",
+        cdi_label_fr: "Frecuencia Respiratoria",
+        cdi_label_temp: "Temperatura Corporal",
+        cdi_label_spo2: "Saturación Oxígeno (SpO2)",
+        cdi_label_avpu: "Nivel de Consciencia",
+        cdi_label_o2: "Paciente con Oxígeno Suplementario",
+        cdi_score_label: "Puntaje NEWS2 Calculado:",
+        cdi_btn_save: "Registrar en Historia Clínica",
+        cdi_history_title: "Pacientes en Triaje Hospitalario",
+        cdi_modules_title: "Módulos del Sistema Implementados",
+        robles_gate_title: "Bitácora de Garita y Control de Accesos",
+        robles_gate_desc: "El sistema de seguridad perimetral valida las placas en tiempo real e impide que un mismo vehículo registre dos ingresos simultáneos sin antes registrar su salida:",
+        robles_btn_entry: "Registrar Ingreso en Garita",
+        robles_inside_title: "Vehículos Actualmente Dentro del Urbanismo",
+        robles_services_title: "Semáforo de Servicios Comunales",
+        robles_services_desc: "Haz clic en cualquier servicio para alternar su estado en tiempo real (Operativo / Inestable / Interrumpido):",
+        robles_solvency_title: "Métricas de Catastro & Condominio",
         araure_bi_title: "BI Demográfico - Censo Escuela",
         araure_pyr_title: "Pirámide de Población (Censo Comunal)",
         araure_pyr_men: "MASCULINO (Cian)",
@@ -105,19 +117,15 @@ const translations = {
         araure_label_pending_list: "Historial local de envío",
         btn_back: "Volver",
         btn_next: "Siguiente",
-        gym_active_members: "Atletas Activos hoy",
-        gym_coaches: "Entrenadores Pro",
-        gym_hours: "Horario Semanal",
-        gym_scheduler_title: "Calendario de Actividades Especiales",
-        gym_day_week: "Lunes a Viernes",
-        gym_day_sat: "Sábados",
-        gym_th_time: "Hora",
-        gym_th_class: "Actividad",
-        gym_th_coach: "Entrenador",
-        gym_th_intensity: "Intensidad",
-        gym_trainer_1: "Head Coach & Antofit CEO",
-        gym_trainer_2: "Entrenador de Fuerza Máxima",
-        gym_trainer_3: "Especialista en Yoga & Vinyasa",
+        roble_search_placeholder: "Buscar productos en Roble Market...",
+        roble_cart_title: "Tu Pedido",
+        roble_cart_empty: "El carrito está vacío.",
+        roble_subtotal: "Subtotal",
+        roble_delivery: "Envío / Delivery",
+        roble_total: "Total General",
+        roble_opt_pickup: "Retirar en tienda",
+        roble_opt_delivery: "Delivery (+$2.50)",
+        roble_btn_pay: "Proceder a Pagar",
         modal_payment_title: "Pago Móvil de Confirmación",
         modal_payment_sub: "Realiza la transferencia desde la app de tu banco a los siguientes datos simulados y presiona confirmar:",
         pm_bank: "Banco",
@@ -132,249 +140,204 @@ const translations = {
         toast_pm_invalid: "Error: Ingresa los 4 dígitos de la referencia bancaria.",
         toast_censo_success: "Censo enviado. Registrado localmente como PENDIENTE.",
         toast_censo_err: "Por favor, completa los campos requeridos.",
+        toast_triage_saved: "Paciente y signos vitales registrados con éxito en Historia Clínica.",
+        toast_gate_success: "Ingreso autorizado y registrado en garita.",
+        toast_gate_duplicate: "¡Violación de seguridad! La placa ya tiene un ingreso abierto en garita.",
+        toast_gate_exit: "Salida registrada. El vehículo ya no se encuentra en el urbanismo.",
+        toast_service_toggle: "Estado del servicio actualizado en la cartelera comunitaria.",
         lang_switch_desc: "Español",
         out_of_stock_tag: "AGOTADO",
         in_stock_tag: "DISPONIBLE"
     },
     en: {
-        sidebar_title: "Analyst / Programmer",
+        sidebar_title: "Software Engineer / Analyst",
+        btn_download_cv: "Download CV (PDF)",
         menu_overview: "Overview",
         menu_experience: "Experience",
         menu_education: "Education",
         menu_skills: "Skills",
         menu_portfolio: "Systems",
         header_main_title: "Professional Control Panel",
-        header_sub_title: "Resume & Systems Implemented by Luis Gallardo",
+        header_sub_title: "Resume & Software Systems by Luis Gallardo",
         status_active: "Available for projects",
-        card_title: "Systems Analyst & Programmer",
+        card_title: "Software Engineer / Full-Stack Analyst",
         info_age: "Age",
         info_years: "Years",
-        info_id: "ID Card",
+        info_id: "ID Number",
         info_birth: "Birth Date",
         info_loc: "Location",
         bio_header: "Professional Profile",
-        bio_p1: "I am a highly motivated and passionate systems analyst and programmer. I possess a strong ability for teamwork, making logical decisions, and solving complex problems in an agile manner, adapting to changes and constantly evolving.",
-        bio_p2: "Throughout my academic and professional career, I have focused my efforts on developing complete web solutions (Full-Stack), from database design to the user interface. I have successfully led the automation of communal census systems and the creation of robust e-commerce platforms.",
-        stat_projects: "Created Systems",
-        stat_degrees: "Degrees / Careers",
-        stat_responsive: "Responsive UI",
-        portfolio_summary_header: "Relevant Systems Implemented",
-        summary_roble: "E-commerce platform for Bodegón. Next.js Frontend, FastAPI API, PostgreSQL database.",
-        summary_araure: "Communal Census System. Next.js 14, Prisma ORM, Supabase and dynamic BI charts.",
-        summary_fitness: "Corporate landing page for Training Center. HTML5, CSS3 Grid and Javascript.",
-        summary_tikios: "Sports interface design and structuring of social media with a corporate focus.",
-        exp_roble_role: "Cashier & Store Supervisor",
-        exp_roble_desc: "Directly responsible for the cash register area, billing control, and daily cash balancing. In charge of the establishment itself, coordinating logistics, staff supervision, inventory management, and the correct overall operational functioning of the store.",
-        tag_cash: "Cash Control",
-        tag_ops: "Store Operations",
-        tag_customer: "Customer Service",
-        tag_supervision: "Store Supervision",
-        tag_logistics: "Logistics",
-        exp_mango_role: "Integral Store Assistant",
-        exp_mango_desc: "Multifunctional operational support in customer service, internal logistics, and direct assistance for sales and inventory software systems, helping resolve technical issues at POS terminals.",
-        exp_hiper_role: "Professional Cashier",
-        exp_hiper_desc: "Handling and recording massive commercial transactions on POS systems, high-precision daily cash balancing, timely customer service, and agile management of multiple payment forms (local currency, forex, and electronic payments).",
-        edu_upt_inst: "UPT Portuguesa University",
-        edu_upt_title: "B.S. Software Engineering",
-        edu_upt_desc: "Studies focused on network architecture, algorithms, advanced databases, software engineering, and socio-technological development projects applied to real community needs.",
-        edu_iutepi_inst: "IUTEPI Institute - Acarigua",
-        edu_iutepi_title: "A.S. Systems Analysis",
-        edu_iutepi_desc: "Dedicated to the analysis and design of computer workflows, relational database design, agile development methodologies (Scrum), and object-oriented programming in web and desktop environments.",
+        bio_p1: "Software Engineer and Systems Analyst focused on modern Full-Stack architecture, development, and deployment (Next.js, React, TypeScript, Python FastAPI, PostgreSQL, and Supabase). Specialist in designing scalable platforms for both retail commerce (POS, inventory, e-commerce) and mission-critical community and healthcare systems.",
+        bio_p2: "Throughout my career, I have successfully led the entire software lifecycle of 4 production-grade systems: from relational database architecture with Row Level Security (RLS) and high-performance REST APIs to multiplatform user interfaces (Web, Offline-First PWA, and native Android via Capacitor) adhering to strict usability, accessibility, and automated testing standards.",
+        stat_projects: "Production Systems",
+        stat_degrees: "University Degrees",
+        stat_responsive: "Mobile-First & PWA",
+        portfolio_summary_header: "Key Implemented Systems",
+        summary_cdi: "Multiplatform Hospital System (Web/PWA/Android). 24 clinical modules, NEWS2 Triage, DICOM viewer, and QR prescriptions. FastAPI + Supabase.",
+        summary_araure: "Community Census System in live production (Vercel). Next.js 14, Prisma ORM, PostgreSQL, and real-time demographic Business Intelligence.",
+        summary_robles: "Community Management, Cadastre & Security Gate. Next.js 16, Supabase RLS, strict vehicular access control, and bi-monetary FIFO condominium ledger.",
+        summary_roble: "E-Commerce and Point-of-Sale (POS) platform. FastAPI backend, Next.js frontend, PostgreSQL, and automated mobile payment confirmation.",
+        exp_roble_role: "General Operations Manager & POS / E-Commerce Developer",
+        exp_roble_desc: "Directly managed local retail operations, staff coordination, physical inventory audits, and daily cash reconciliations. Autonomously engineered and deployed the complete POS sales and digital catalog software platform using FastAPI, Next.js, and PostgreSQL, streamlining checkout times and integrating bi-monetary billing without currency discrepancies.",
+        exp_comun_role: "Lead Software Engineer & Technical Consultant",
+        exp_comun_company: "Community & Healthcare Software Initiatives (Portuguesa, VE)",
+        exp_comun_desc: "Led the software architecture and deployment of high-impact sociotechnological platforms: the comprehensive CDI Salud Integral hospital system (24 clinical modules, NEWS2 triage, PWA/Android), the Araure Tricentenaria census BI system deployed to production on Vercel, and the Los Robles urban cadastre and condominium platform built with Next.js 16 and Supabase RLS.",
+        exp_mango_role: "Retail Associate & POS Technical Support",
+        exp_mango_desc: "Multifunctional operations in customer service, internal logistics, and direct technical support for computer sales and inventory POS systems, assisting in terminal hardware and software troubleshooting.",
+        exp_hiper_role: "High-Volume POS Cashier & Transactions Operator",
+        exp_hiper_desc: "Processed massive commercial retail transaction volumes on POS systems, executed precise daily cash register audits, provided fast customer support, and handled multi-currency and electronic payment methods.",
+        tag_cash: "Cash Audit Control",
+        tag_ops: "Operational Management",
+        edu_upt_inst: "UPT Portuguesa University \"J.J. Montilla\"",
+        edu_upt_title: "B.S. in Computer Science & Informatics Engineering",
+        edu_upt_desc: "Comprehensive studies in network architecture, advanced algorithms, software engineering, relational databases, computer security, and applied community sociotechnological systems.",
+        edu_iutepi_inst: "IUTEPI Computer Technology Institute - Acarigua",
+        edu_iutepi_title: "Associate Degree in Systems Analysis",
+        edu_iutepi_desc: "Studies focused on data modeling, business systems analysis, algorithm design, Agile methodologies (Scrum), and object-oriented programming in web and enterprise environments.",
         edu_iutepi_date: "2024 - Present",
-        edu_udemy_title: "Complete Web Development",
-        edu_udemy_desc: "Certification focused on building dynamic and responsive web applications using core web technologies and databases.",
-        edu_fermin_inst: "U.E. \"Fermín Toro\" Private School",
+        edu_udemy_title: "Full-Stack Web Development Masterclass",
+        edu_udemy_desc: "Professional certification covering modern high-performance web application development using core modern web technologies.",
+        edu_fermin_inst: "\"Fermin Toro\" Private Academy",
         edu_fermin_title: "High School Diploma in Science",
-        edu_fermin_desc: "Comprehensive high school education, providing the fundamental scientific and mathematical bases for computer sciences.",
+        edu_fermin_desc: "Integral scientific and mathematical education establishing core logical and analytical foundations for computer science.",
         skills_tech: "Technical Skills",
         skills_soft: "Soft Skills",
         skills_langs: "Languages",
-        soft_proactive: "Proactive",
-        soft_teamwork: "Team Player",
-        soft_mind: "Open Minded",
-        soft_problem: "Problem Solver",
-        soft_adapt: "Adaptable to Change",
+        soft_proactive: "Leadership & Proactivity",
+        soft_teamwork: "Teamwork & Collaboration",
+        soft_mind: "Logical & Analytical Thinking",
+        soft_problem: "Agile Problem Solving",
+        soft_adapt: "Adaptability & Rapid Learning",
         lang_es: "Spanish",
         lang_es_lvl: "Native",
         lang_en: "English",
-        lang_en_lvl: "Intermediate",
+        lang_en_lvl: "Intermediate (Technical / Documentation)",
         portfolio_header: "Interactive Systems Portfolio",
-        portfolio_sub: "Run and experience real-time simulations of real web systems developed by Luis Gallardo.",
-        roble_search_placeholder: "Search products in Roble Market...",
-        roble_cart_title: "Your Order",
-        roble_cart_empty: "The cart is empty.",
-        roble_subtotal: "Subtotal",
-        roble_delivery: "Delivery Fee",
-        roble_total: "Grand Total",
-        roble_opt_pickup: "Store pickup",
-        roble_opt_delivery: "Delivery (+$2.50)",
-        roble_btn_pay: "Proceed to Pay",
+        portfolio_sub: "Explore and run live interactive simulations of the 4 engineering software systems built by Luis Gallardo.",
+        cdi_triage_title: "Clinical Emergency Triage (NEWS2)",
+        cdi_triage_desc: "Enter or adjust the patient's vital signs to calculate the National Early Warning Score (NEWS2) and recommended clinical action in real time:",
+        cdi_label_pa: "Systolic Blood Pressure",
+        cdi_label_fc: "Heart Rate",
+        cdi_label_fr: "Respiration Rate",
+        cdi_label_temp: "Body Temperature",
+        cdi_label_spo2: "Oxygen Saturation (SpO2)",
+        cdi_label_avpu: "Consciousness Level (AVPU)",
+        cdi_label_o2: "Patient on Supplemental Oxygen",
+        cdi_score_label: "Calculated NEWS2 Score:",
+        cdi_btn_save: "Record in Electronic Medical Record",
+        cdi_history_title: "Patients in Hospital Triage",
+        cdi_modules_title: "Implemented System Modules",
+        robles_gate_title: "Security Gate Log & Access Control",
+        robles_gate_desc: "The perimeter security engine validates license plates in real time and prevents duplicate open entries without an exit timestamp:",
+        robles_btn_entry: "Record Gate Entry",
+        robles_inside_title: "Vehicles Currently Inside Community",
+        robles_services_title: "Community Public Services Traffic Light",
+        robles_services_desc: "Click any service to toggle its real-time public status (Operational / Unstable / Disrupted):",
+        robles_solvency_title: "Cadastre & Condominium Metrics",
         araure_bi_title: "Demographic BI - School Census",
-        araure_pyr_title: "Population Pyramid (Communal Census)",
-        araure_pyr_men: "MASCULINE (Cyan)",
-        araure_pyr_women: "FEMENINO (Emerald)",
-        araure_med_title: "Top 3 Demanded Census Medications",
-        araure_med_units: "Regs",
-        araure_form_title: "Communal Census Simulator",
-        araure_step1_header: "Step 1: Housing & Address Details",
+        araure_pyr_title: "Population Pyramid (Community Census)",
+        araure_pyr_men: "MALE (Cyan)",
+        araure_pyr_women: "FEMALE (Emerald)",
+        araure_med_title: "Top 3 Censused Medication Demands",
+        araure_med_units: "Records",
+        araure_form_title: "Community Census Simulator",
+        araure_step1_header: "Step 1: Housing & Address Data",
         araure_label_street: "Street / Avenue",
-        araure_label_house: "House Number",
+        araure_label_house: "House #",
         araure_label_type: "Housing Type",
         araure_house_opt: "House",
-        araure_label_services: "Available Basic Services",
+        araure_label_services: "Available Public Services",
         srv_water: "Drinking Water",
         srv_power: "Electricity",
         srv_gas: "Communal Gas",
         srv_net: "Internet",
         araure_step2_header: "Step 2: Head of Household & Health Conditions",
         araure_label_name: "Full Name",
-        araure_label_id: "ID Number",
+        araure_label_id: "National ID",
         araure_label_gender: "Gender",
         araure_gender_m: "Male",
         araure_gender_f: "Female",
         araure_label_med_req: "Required Medication",
         araure_med_none: "None / Healthy",
-        araure_label_pending_list: "Local shipment log",
+        araure_label_pending_list: "Local Submission History",
         btn_back: "Back",
         btn_next: "Next",
-        gym_active_members: "Active Athletes today",
-        gym_coaches: "Pro Coaches",
-        gym_hours: "Weekly Schedule",
-        gym_scheduler_title: "Special Activities Schedule",
-        gym_day_week: "Monday to Friday",
-        gym_day_sat: "Saturdays",
-        gym_th_time: "Time",
-        gym_th_class: "Activity",
-        gym_th_coach: "Instructor",
-        gym_th_intensity: "Intensity",
-        gym_trainer_1: "Head Coach & Antofit CEO",
-        gym_trainer_2: "Maximum Strength Coach",
-        gym_trainer_3: "Yoga & Vinyasa Specialist",
-        modal_payment_title: "Confirmation Mobile Payment",
-        modal_payment_sub: "Transfer from your bank app using the following simulated details and press confirm:",
+        roble_search_placeholder: "Search products in Roble Market...",
+        roble_cart_title: "Your Order",
+        roble_cart_empty: "Cart is empty.",
+        roble_subtotal: "Subtotal",
+        roble_delivery: "Shipping / Delivery",
+        roble_total: "Grand Total",
+        roble_opt_pickup: "Store Pickup",
+        roble_opt_delivery: "Delivery (+$2.50)",
+        roble_btn_pay: "Proceed to Checkout",
+        modal_payment_title: "Mobile Payment Confirmation",
+        modal_payment_sub: "Transfer the amount from your banking app to the simulated details below and press confirm:",
         pm_bank: "Bank",
-        pm_phone: "Phone Number",
-        pm_id: "ID / Tax ID",
+        pm_phone: "Phone",
+        pm_id: "ID / Tax Number",
         pm_amount: "Amount to Transfer",
-        pm_ref_label: "Bank Reference Number (Last 4 digits)",
+        pm_ref_label: "Bank Reference Number (Last 4 Digits)",
         pm_btn_confirm: "Confirm Mobile Payment",
         toast_add_cart: "Added to cart: ",
         toast_limit: "Stock limit reached.",
-        toast_pm_success: "Mobile Payment Confirmed! Bank Webhook received.",
-        toast_pm_invalid: "Error: Enter the 4 digits of bank reference.",
-        toast_censo_success: "Census sent. Locally registered as PENDING.",
+        toast_pm_success: "Payment confirmed! Banking webhook verified.",
+        toast_pm_invalid: "Error: Please enter the 4-digit bank reference.",
+        toast_censo_success: "Census submitted. Saved locally as PENDING.",
         toast_censo_err: "Please fill in all required fields.",
-        lang_switch_desc: "Español",
+        toast_triage_saved: "Patient vitals successfully recorded in Medical Record.",
+        toast_gate_success: "Entry authorized and logged in security gate.",
+        toast_gate_duplicate: "Security violation! License plate already has an open entry.",
+        toast_gate_exit: "Exit recorded. Vehicle has left the community.",
+        toast_service_toggle: "Service status updated on the public community board.",
+        lang_switch_desc: "English",
         out_of_stock_tag: "OUT OF STOCK",
         in_stock_tag: "IN STOCK"
     }
 };
 
-let currentLanguage = localStorage.getItem('portfolio_lang') || 'es';
-
-function toggleLanguage() {
-    currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
-    localStorage.setItem('portfolio_lang', currentLanguage);
-    applyLanguage(currentLanguage);
-}
+let currentLanguage = 'es';
 
 function applyLanguage(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
+    currentLanguage = lang;
+    document.documentElement.lang = lang;
+    
+    // Update simple text nodes
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-            el.innerHTML = translations[lang][key];
+            el.innerText = translations[lang][key];
         }
     });
 
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    // Update placeholders
+    const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+    placeholders.forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
         if (translations[lang] && translations[lang][key]) {
-            el.setAttribute('placeholder', translations[lang][key]);
+            el.placeholder = translations[lang][key];
         }
     });
 
-    // Update language switch button text
+    // Toggle button label
     const langBtn = document.getElementById('langBtn');
     if (langBtn) {
         langBtn.querySelector('span').innerText = lang === 'es' ? 'English' : 'Español';
     }
 
-    // Refresh simulation contents that rely on language state
+    // Refresh dynamically generated components
     renderRobleProducts();
     updateCartDOM();
-    updateCensusHistoryDOM();
-    renderGymSchedule();
+    calculateNEWS2();
+    renderGateTable();
 }
 
-// 2. TAB CONTROLLER
-const tabButtons = document.querySelectorAll('.nav-menu .nav-item, .mobile-nav-bar .mobile-nav-btn');
-const tabContents = document.querySelectorAll('.tab-content');
-const sidebar = document.getElementById('sidebar');
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-
-tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const tabName = btn.getAttribute('data-tab');
-        
-        // Remove active state from all buttons
-        tabButtons.forEach(b => {
-            if (b.getAttribute('data-tab') === tabName) {
-                b.classList.add('active');
-            } else {
-                b.classList.remove('active');
-            }
-        });
-
-        // Show active tab, hide others
-        tabContents.forEach(content => {
-            if (content.id === tabName) {
-                content.classList.add('active');
-            } else {
-                content.classList.remove('active');
-            }
-        });
-
-        // Close sidebar on mobile after clicking
-        if (sidebar.classList.contains('active')) {
-            sidebar.classList.remove('active');
-            const icon = hamburgerBtn.querySelector('i');
-            icon.className = 'fa-solid fa-bars';
-        }
-
-        // Scroll main panel to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        // Trigger animations for skill bars
-        if (tabName === 'skills') {
-            animateSkillBars();
-        }
-    });
-});
-
-// Mobile Hamburger Menu toggle
-if (hamburgerBtn) {
-    hamburgerBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-        const icon = hamburgerBtn.querySelector('i');
-        if (sidebar.classList.contains('active')) {
-            icon.className = 'fa-solid fa-xmark';
-        } else {
-            icon.className = 'fa-solid fa-bars';
-        }
-    });
+function toggleLanguage() {
+    applyLanguage(currentLanguage === 'es' ? 'en' : 'es');
 }
 
-// Technical Skill Bar animations
-function animateSkillBars() {
-    const bars = document.querySelectorAll('.skill-bar-fill');
-    bars.forEach(bar => {
-        const width = bar.getAttribute('data-width');
-        bar.style.width = width;
-    });
-}
-
-
-// 3. TOAST NOTIFICATION HELPER
+// 2. TOAST NOTIFICATION SYSTEM
 function showToast(message, type = 'success') {
     const container = document.getElementById('toastContainer');
     if (!container) return;
@@ -382,27 +345,80 @@ function showToast(message, type = 'success') {
     const toast = document.createElement('div');
     toast.className = `toast ${type === 'error' ? 'toast-error' : ''}`;
     
-    const icon = document.createElement('i');
-    icon.className = type === 'error' ? 'fa-solid fa-circle-exclamation' : 'fa-solid fa-circle-check';
+    const icon = type === 'error' ? 'fa-triangle-exclamation' : 'fa-circle-check';
+    toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${message}</span>`;
     
-    const textSpan = document.createElement('span');
-    textSpan.innerText = message;
-
-    toast.appendChild(icon);
-    toast.appendChild(textSpan);
     container.appendChild(toast);
-
-    // Fade out and remove
+    
     setTimeout(() => {
         toast.style.opacity = '0';
-        toast.style.transform = 'translateY(15px)';
-        toast.style.transition = 'all 0.3s ease';
-        setTimeout(() => {
-            toast.remove();
-        }, 300);
+        toast.style.transform = 'translateY(10px)';
+        setTimeout(() => toast.remove(), 300);
     }, 3500);
 }
 
+// 3. MAIN DASHBOARD TABS NAVIGATION
+const navItems = document.querySelectorAll('.nav-item');
+const tabContents = document.querySelectorAll('.tab-content');
+const pageTitle = document.getElementById('pageTitle');
+const sidebar = document.getElementById('sidebar');
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const tab = item.getAttribute('data-tab');
+        
+        // Active item highlight
+        navItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+
+        // Sync mobile bottom bar
+        const mobileBtns = document.querySelectorAll('.mobile-nav-btn');
+        mobileBtns.forEach(b => {
+            if (b.getAttribute('data-tab') === tab) {
+                b.classList.add('active');
+            } else {
+                b.classList.remove('active');
+            }
+        });
+
+        // Show matching content
+        tabContents.forEach(content => {
+            if (content.id === tab) {
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+
+        // Trigger animation for skill bars if tab is skills
+        if (tab === 'skills') {
+            animateSkillBars();
+        }
+
+        // Close mobile sidebar if open
+        if (sidebar && sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+        }
+    });
+});
+
+if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', () => {
+        if (sidebar) sidebar.classList.toggle('open');
+    });
+}
+
+function animateSkillBars() {
+    const fills = document.querySelectorAll('.skill-bar-fill');
+    fills.forEach(fill => {
+        const targetWidth = fill.getAttribute('data-width');
+        fill.style.width = '0%';
+        setTimeout(() => {
+            fill.style.width = targetWidth;
+        }, 150);
+    });
+}
 
 // 4. PORTFOLIO SYSTEMS TABS CONTROLLER
 const projTabButtons = document.querySelectorAll('.p-tab-btn');
@@ -426,227 +442,208 @@ projTabButtons.forEach(btn => {
 });
 
 
-// ==========================================
-// SIMULATOR 1: ROBLE MARKET (E-commerce)
-// ==========================================
-const robleProducts = [
-    { id: 1, nameEs: "Harina PAN de Maíz", nameEn: "PAN Corn Flour 1kg", price: 1.10, stock: 0, icon: "fa-solid fa-wheat-awn" },
-    { id: 2, nameEs: "Nutella Chocolate 350g", nameEn: "Nutella Spread 350g", price: 5.50, stock: 12, icon: "fa-solid fa-jar" },
-    { id: 3, nameEs: "Coca-Cola Refresco 2L", nameEn: "Coca-Cola Soda 2L", price: 2.00, stock: 8, icon: "fa-solid fa-bottle-water" },
-    { id: 4, nameEs: "Cerveza Polar Light Tercio", nameEn: "Polar Light Beer 330ml", price: 1.50, stock: 24, icon: "fa-solid fa-beer-mug-empty" },
-    { id: 5, nameEs: "Queso Amarillo 1kg", nameEn: "Yellow Cheese 1kg", price: 6.20, stock: 5, icon: "fa-solid fa-cheese" },
-    { id: 6, nameEs: "Café Fama de América 500g", nameEn: "Fama de America Coffee 500g", price: 4.80, stock: 15, icon: "fa-solid fa-mug-hot" }
+// ==========================================================================
+// SIMULATOR 1: CDI SALUD INTEGRAL (NEWS2 Triage Calculator)
+// ==========================================================================
+function calculateNEWS2() {
+    const paEl = document.getElementById('newsPa');
+    const fcEl = document.getElementById('newsFc');
+    const frEl = document.getElementById('newsFr');
+    const tempEl = document.getElementById('newsTemp');
+    const spo2El = document.getElementById('newsSpo2');
+    const avpuEl = document.getElementById('newsAvpu');
+    const o2El = document.getElementById('newsO2');
+
+    if (!paEl || !fcEl || !frEl || !tempEl || !spo2El || !avpuEl) return;
+
+    const pa = parseFloat(paEl.value) || 120;
+    const fc = parseFloat(fcEl.value) || 75;
+    const fr = parseFloat(frEl.value) || 16;
+    const temp = parseFloat(tempEl.value) || 36.8;
+    const spo2 = parseFloat(spo2El.value) || 98;
+    const avpu = avpuEl.value || 'A';
+    const o2 = o2El ? o2El.checked : false;
+
+    let score = 0;
+    let singleParam3 = false;
+
+    // Respiration Rate
+    let frScore = 0;
+    if (fr <= 8) frScore = 3;
+    else if (fr >= 9 && fr <= 11) frScore = 1;
+    else if (fr >= 12 && fr <= 20) frScore = 0;
+    else if (fr >= 21 && fr <= 24) frScore = 2;
+    else if (fr >= 25) frScore = 3;
+    if (frScore === 3) singleParam3 = true;
+    score += frScore;
+
+    // SpO2
+    let spo2Score = 0;
+    if (spo2 <= 91) spo2Score = 3;
+    else if (spo2 >= 92 && spo2 <= 93) spo2Score = 2;
+    else if (spo2 >= 94 && spo2 <= 95) spo2Score = 1;
+    else spo2Score = 0;
+    if (spo2Score === 3) singleParam3 = true;
+    score += spo2Score;
+
+    // Supplementary O2
+    if (o2) score += 2;
+
+    // Systolic Blood Pressure
+    let paScore = 0;
+    if (pa <= 90) paScore = 3;
+    else if (pa >= 91 && pa <= 100) paScore = 2;
+    else if (pa >= 101 && pa <= 110) paScore = 1;
+    else if (pa >= 111 && pa <= 219) paScore = 0;
+    else if (pa >= 220) paScore = 3;
+    if (paScore === 3) singleParam3 = true;
+    score += paScore;
+
+    // Heart Rate
+    let fcScore = 0;
+    if (fc <= 40) fcScore = 3;
+    else if (fc >= 41 && fc <= 50) fcScore = 1;
+    else if (fc >= 51 && fc <= 90) fcScore = 0;
+    else if (fc >= 91 && fc <= 110) fcScore = 1;
+    else if (fc >= 111 && fc <= 130) fcScore = 2;
+    else if (fc >= 131) fcScore = 3;
+    if (fcScore === 3) singleParam3 = true;
+    score += fcScore;
+
+    // Consciousness
+    let avpuScore = (avpu === 'A') ? 0 : 3;
+    if (avpuScore === 3) singleParam3 = true;
+    score += avpuScore;
+
+    // Temperature
+    let tempScore = 0;
+    if (temp <= 35.0) tempScore = 3;
+    else if (temp >= 35.1 && temp <= 36.0) tempScore = 1;
+    else if (temp >= 36.1 && temp <= 38.0) tempScore = 0;
+    else if (temp >= 38.1 && temp <= 39.0) tempScore = 1;
+    else if (temp >= 39.1) tempScore = 2;
+    if (tempScore === 3) singleParam3 = true;
+    score += tempScore;
+
+    // DOM Update
+    const scoreValEl = document.getElementById('news2ScoreVal');
+    const badgeEl = document.getElementById('news2RiskBadge');
+    const actionEl = document.getElementById('news2ActionText');
+
+    if (scoreValEl) scoreValEl.innerText = score;
+
+    if (badgeEl && actionEl) {
+        if (score >= 7) {
+            badgeEl.className = 'news2-badge badge-risk-high';
+            badgeEl.innerText = currentLanguage === 'es' ? `Riesgo Alto (Score: ${score})` : `High Risk (Score: ${score})`;
+            actionEl.innerText = currentLanguage === 'es' 
+                ? "ALERTA CRÍTICA: Respuesta médica de emergencia inmediata. Notificación al equipo de guardia y preparación para soporte vital / reanimación."
+                : "CRITICAL ALERT: Immediate emergency medical response. Notify rapid response team and prepare resuscitation / ICU transfer.";
+            if (scoreValEl) scoreValEl.style.color = 'var(--accent-red)';
+        } else if (score >= 5 || singleParam3) {
+            badgeEl.className = 'news2-badge badge-risk-med';
+            badgeEl.innerText = currentLanguage === 'es' ? `Riesgo Medio (Score: ${score})` : `Medium Risk (Score: ${score})`;
+            actionEl.innerText = currentLanguage === 'es'
+                ? "Alerta Intermedia: Evaluación urgente por médico tratante dentro de 30 minutos. Monitoreo continuo de signos vitales cada 1 hora."
+                : "Urgent Warning: Urgent evaluation by attending physician within 30 minutes. Monitor vitals hourly.";
+            if (scoreValEl) scoreValEl.style.color = 'var(--accent-yellow)';
+        } else {
+            badgeEl.className = 'news2-badge badge-risk-low';
+            badgeEl.innerText = currentLanguage === 'es' ? `Riesgo Bajo (Score: ${score})` : `Low Risk (Score: ${score})`;
+            actionEl.innerText = currentLanguage === 'es'
+                ? "Monitoreo clínico de rutina cada 12 horas. Paciente hemodinámicamente estable, continuar flujo asistencial estándar."
+                : "Routine clinical monitoring every 12 hours. Patient hemodynamically stable, continue standard ward care.";
+            if (scoreValEl) scoreValEl.style.color = 'var(--accent-emerald)';
+        }
+    }
+}
+
+// Bind NEWS2 vital sign input change events
+['newsPa', 'newsFc', 'newsFr', 'newsTemp', 'newsSpo2', 'newsAvpu'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+        el.addEventListener('input', calculateNEWS2);
+        el.addEventListener('change', calculateNEWS2);
+    }
+});
+const o2Checkbox = document.getElementById('newsO2');
+if (o2Checkbox) o2Checkbox.addEventListener('change', calculateNEWS2);
+
+// Triage Patient Electronic Records List
+let triagePatientHistory = [
+    { name: "Yolanda Rivas", age: 58, pa: "125/80", fc: 74, fr: 16, temp: 36.6, spo2: 98, score: 0, risk: "BAJO", time: "10:20 AM" },
+    { name: "Ramón Colmenárez", age: 64, pa: "145/95", fc: 96, fr: 22, temp: 38.4, spo2: 94, score: 4, risk: "BAJO", time: "11:05 AM" },
+    { name: "Eduardo Castillo", age: 71, pa: "88/55", fc: 118, fr: 26, temp: 39.2, spo2: 91, score: 9, risk: "ALTO", time: "11:45 AM" }
 ];
 
-let cart = [];
-const deliveryPrice = 2.50;
-
-function renderRobleProducts() {
-    const grid = document.getElementById('catalogGrid');
-    const searchVal = document.getElementById('robleSearch').value.toLowerCase();
-    if (!grid) return;
-    
-    grid.innerHTML = '';
-    
-    const filtered = robleProducts.filter(p => {
-        const name = currentLanguage === 'es' ? p.nameEs.toLowerCase() : p.nameEn.toLowerCase();
-        return name.includes(searchVal);
-    });
-
-    filtered.forEach(p => {
-        const isOutOfStock = p.stock === 0;
-        const name = currentLanguage === 'es' ? p.nameEs : p.nameEn;
-        const statusText = isOutOfStock 
-            ? `<span class="product-status status-outstock">${translations[currentLanguage].out_of_stock_tag}</span>` 
-            : `<span class="product-status status-instock">${translations[currentLanguage].in_stock_tag} (${p.stock})</span>`;
-        
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-            <div class="product-img-placeholder">
-                <i class="${p.icon}"></i>
-            </div>
-            <div class="product-info">
-                <h4>${name}</h4>
-                ${statusText}
-            </div>
-            <div class="product-footer">
-                <span class="product-price">$${p.price.toFixed(2)}</span>
-                <button class="btn-add-cart" onclick="addProductToCart(${p.id})" ${isOutOfStock ? 'disabled' : ''}>
-                    <i class="fa-solid fa-cart-plus"></i>
-                </button>
-            </div>
-        `;
-        grid.appendChild(card);
-    });
-}
-
-function addProductToCart(productId) {
-    const prod = robleProducts.find(p => p.id === productId);
-    if (!prod || prod.stock <= 0) return;
-
-    const existing = cart.find(item => item.id === productId);
-    if (existing) {
-        if (existing.qty < prod.stock) {
-            existing.qty++;
-            showToast(`${translations[currentLanguage].toast_add_cart} ${currentLanguage === 'es' ? prod.nameEs : prod.nameEn}`);
-        } else {
-            showToast(translations[currentLanguage].toast_limit, 'error');
-        }
-    } else {
-        cart.push({ id: productId, qty: 1, price: prod.price });
-        showToast(`${translations[currentLanguage].toast_add_cart} ${currentLanguage === 'es' ? prod.nameEs : prod.nameEn}`);
-    }
-
-    updateCartDOM();
-}
-
-function updateCartQty(productId, delta) {
-    const prod = robleProducts.find(p => p.id === productId);
-    const item = cart.find(item => item.id === productId);
-    if (!item) return;
-
-    item.qty += delta;
-
-    if (item.qty <= 0) {
-        cart = cart.filter(i => i.id !== productId);
-    } else if (item.qty > prod.stock) {
-        item.qty = prod.stock;
-        showToast(translations[currentLanguage].toast_limit, 'error');
-    }
-
-    updateCartDOM();
-}
-
-function updateCartDOM() {
-    const list = document.getElementById('cartItemsList');
-    const countBadge = document.getElementById('cartCount');
-    const subtotalText = document.getElementById('cartSubtotal');
-    const deliveryText = document.getElementById('cartDelivery');
-    const totalText = document.getElementById('cartTotal');
-    const checkoutBtn = document.getElementById('btnCheckout');
-    
+function renderTriageHistoryDOM() {
+    const list = document.getElementById('triageHistoryList');
     if (!list) return;
 
-    if (cart.length === 0) {
-        list.innerHTML = `<div class="cart-empty">${translations[currentLanguage].roble_cart_empty}</div>`;
-        countBadge.innerText = '0';
-        subtotalText.innerText = '$0.00';
-        deliveryText.innerText = '$0.00';
-        totalText.innerText = '$0.00';
-        checkoutBtn.disabled = true;
-        return;
-    }
-
     list.innerHTML = '';
-    let totalQty = 0;
-    let subtotal = 0;
+    triagePatientHistory.slice().reverse().forEach(p => {
+        let badgeClass = 'color: var(--accent-emerald);';
+        if (p.risk === 'MEDIO') badgeClass = 'color: var(--accent-yellow);';
+        if (p.risk === 'ALTO') badgeClass = 'color: var(--accent-red); font-weight:800;';
 
-    cart.forEach(item => {
-        const prod = robleProducts.find(p => p.id === item.id);
-        const name = currentLanguage === 'es' ? prod.nameEs : prod.nameEn;
-        totalQty += item.qty;
-        subtotal += item.price * item.qty;
-
-        const cartItem = document.createElement('div');
-        cartItem.className = 'cart-item';
-        cartItem.innerHTML = `
-            <div class="cart-item-info">
-                <h5>${name}</h5>
-                <span class="cart-item-qty">$${item.price.toFixed(2)} x ${item.qty}</span>
+        const item = document.createElement('div');
+        item.style.padding = '8px 0';
+        item.style.borderBottom = '1px solid rgba(255, 255, 255, 0.04)';
+        item.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="font-size: 0.88rem;">${p.name} (${p.age}a)</strong>
+                <span style="font-size:0.75rem; ${badgeClass}">NEWS2: ${p.score} [${p.risk}]</span>
             </div>
-            <div class="cart-item-actions">
-                <button class="btn-qty" onclick="updateCartQty(${item.id}, -1)">-</button>
-                <button class="btn-qty" onclick="updateCartQty(${item.id}, 1)">+</button>
+            <div style="color:var(--text-muted); font-size: 0.76rem; display:flex; justify-content:space-between; margin-top:3px;">
+                <span>PA: ${p.pa} | FC: ${p.fc} | SpO2: ${p.spo2}%</span>
+                <span>${p.time}</span>
             </div>
         `;
-        list.appendChild(cartItem);
-    });
-
-    countBadge.innerText = totalQty;
-    subtotalText.innerText = `$${subtotal.toFixed(2)}`;
-    
-    const isDelivery = document.getElementById('deliveryShip').checked;
-    const shippingCost = isDelivery ? deliveryPrice : 0;
-    deliveryText.innerText = `$${shippingCost.toFixed(2)}`;
-    
-    const grandTotal = subtotal + shippingCost;
-    totalText.innerText = `$${grandTotal.toFixed(2)}`;
-    checkoutBtn.disabled = false;
-}
-
-// Payment modal interactions
-const checkoutBtn = document.getElementById('btnCheckout');
-const modalOverlay = document.getElementById('checkoutModal');
-const modalCloseBtn = document.getElementById('modalCloseBtn');
-const confirmPaymentBtn = document.getElementById('btnConfirmPayment');
-
-if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', () => {
-        const total = document.getElementById('cartTotal').innerText;
-        document.getElementById('pmModalAmount').innerText = total;
-        
-        // Randomly select BDV or Mercantil for display payment info
-        const isBDV = Math.random() > 0.5;
-        document.getElementById('pmBankLabel').innerText = isBDV 
-            ? "Banco de Venezuela (BDV)" 
-            : "Mercantil Banco";
-        
-        document.getElementById('pmRef').value = '';
-        modalOverlay.classList.add('active');
+        list.appendChild(item);
     });
 }
 
-if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', () => {
-        modalOverlay.classList.remove('active');
+const btnSaveTriage = document.getElementById('btnSaveTriage');
+if (btnSaveTriage) {
+    btnSaveTriage.addEventListener('click', () => {
+        const scoreVal = parseInt(document.getElementById('news2ScoreVal').innerText) || 0;
+        let riskLabel = "BAJO";
+        if (scoreVal >= 7) riskLabel = "ALTO";
+        else if (scoreVal >= 5) riskLabel = "MEDIO";
+
+        const sampleNames = ["Andrés Parra", "Carmen Valera", "José Lucena", "Beatriz Romero", "Marcos Silva"];
+        const randomName = sampleNames[Math.floor(Math.random() * sampleNames.length)];
+        const randomAge = Math.floor(Math.random() * 50) + 25;
+
+        const paVal = document.getElementById('newsPa').value;
+        const fcVal = document.getElementById('newsFc').value;
+        const frVal = document.getElementById('newsFr').value;
+        const tempVal = document.getElementById('newsTemp').value;
+        const spo2Val = document.getElementById('newsSpo2').value;
+
+        const newTriageEntry = {
+            name: randomName,
+            age: randomAge,
+            pa: `${paVal}/80`,
+            fc: fcVal,
+            fr: frVal,
+            temp: tempVal,
+            spo2: spo2Val,
+            score: scoreVal,
+            risk: riskLabel,
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        };
+
+        triagePatientHistory.push(newTriageEntry);
+        renderTriageHistoryDOM();
+        showToast(translations[currentLanguage].toast_triage_saved);
     });
 }
 
-if (confirmPaymentBtn) {
-    confirmPaymentBtn.addEventListener('click', () => {
-        const refInput = document.getElementById('pmRef').value.trim();
-        if (refInput.length !== 4 || isNaN(refInput)) {
-            showToast(translations[currentLanguage].toast_pm_invalid, 'error');
-            return;
-        }
 
-        // Simulate Bank API checkout validation & webhook response
-        confirmPaymentBtn.disabled = true;
-        confirmPaymentBtn.innerText = currentLanguage === 'es' ? 'Validando...' : 'Verifying...';
-
-        setTimeout(() => {
-            // Deduct stocks
-            cart.forEach(item => {
-                const prod = robleProducts.find(p => p.id === item.id);
-                if (prod) {
-                    prod.stock = Math.max(0, prod.stock - item.qty);
-                }
-            });
-
-            // Reset UI states
-            confirmPaymentBtn.disabled = false;
-            confirmPaymentBtn.innerText = translations[currentLanguage].pm_btn_confirm;
-            modalOverlay.classList.remove('active');
-            
-            showToast(translations[currentLanguage].toast_pm_success);
-            cart = [];
-            updateCartDOM();
-            renderRobleProducts();
-        }, 1200);
-    });
-}
-
-// Search field live typing in Roble Market
-const robleSearch = document.getElementById('robleSearch');
-if (robleSearch) {
-    robleSearch.addEventListener('input', renderRobleProducts);
-}
-
-
-// ==========================================
-// SIMULATOR 2: ARAURE TRICENTENARIA
-// ==========================================
+// ==========================================================================
+// SIMULATOR 2: ARAURE TRICENTENARIA (Census Demography & BI)
+// ==========================================================================
 let censusHistory = [
     { id: 1, name: "María González", street: "Calle Principal", house: "Casa 45", gender: "F", med: "Losartan", date: "24/05/2026", status: "APROBADO" },
     { id: 2, name: "Jesús Torrealba", street: "Calle Bolívar", house: "Casa 12", gender: "M", med: "Ninguno", date: "25/05/2026", status: "APROBADO" },
@@ -662,31 +659,30 @@ const stepPanel1 = document.getElementById('stepPanel1');
 const stepPanel2 = document.getElementById('stepPanel2');
 
 function updateCensusFormDOM() {
+    if (!stepPanel1 || !stepPanel2) return;
     if (currentStep === 1) {
         stepPanel1.classList.add('active');
         stepPanel2.classList.remove('active');
-        btnCensoPrev.style.display = 'none';
-        stepIndicator1.className = 'step-node active';
-        stepIndicator2.className = 'step-node';
-        btnCensoNext.innerText = translations[currentLanguage].btn_next;
+        if (btnCensoPrev) btnCensoPrev.style.display = 'none';
+        if (stepIndicator1) stepIndicator1.className = 'step-node active';
+        if (stepIndicator2) stepIndicator2.className = 'step-node';
+        if (btnCensoNext) btnCensoNext.innerText = translations[currentLanguage].btn_next;
     } else {
         stepPanel1.classList.remove('active');
         stepPanel2.classList.add('active');
-        btnCensoPrev.style.display = 'block';
-        stepIndicator1.className = 'step-node completed';
-        stepIndicator2.className = 'step-node active';
-        btnCensoNext.innerText = currentLanguage === 'es' ? 'Enviar Censo' : 'Submit Census';
+        if (btnCensoPrev) btnCensoPrev.style.display = 'block';
+        if (stepIndicator1) stepIndicator1.className = 'step-node completed';
+        if (stepIndicator2) stepIndicator2.className = 'step-node active';
+        if (btnCensoNext) btnCensoNext.innerText = currentLanguage === 'es' ? 'Enviar Censo' : 'Submit Census';
     }
 }
 
 if (btnCensoNext) {
     btnCensoNext.addEventListener('click', () => {
         if (currentStep === 1) {
-            // Simply transition to step 2
             currentStep = 2;
             updateCensusFormDOM();
         } else {
-            // Process form submit
             const nombre = document.getElementById('c_nombre').value.trim();
             const cedula = document.getElementById('c_cedula').value.trim();
             
@@ -700,7 +696,6 @@ if (btnCensoNext) {
             const c_gender = document.getElementById('c_gender').value;
             const c_med = document.getElementById('c_med').value;
 
-            // Save censo entry
             const newRecord = {
                 id: censusHistory.length + 1,
                 name: nombre,
@@ -713,17 +708,14 @@ if (btnCensoNext) {
             };
             censusHistory.push(newRecord);
 
-            // Update stats indicators
             updateBIStats(c_gender, c_med);
 
-            // Clear inputs
             document.getElementById('c_nombre').value = '';
             document.getElementById('c_cedula').value = '';
             document.getElementById('c_med').selectedIndex = 0;
 
             showToast(translations[currentLanguage].toast_censo_success);
 
-            // Reset step
             currentStep = 1;
             updateCensusFormDOM();
             updateCensusHistoryDOM();
@@ -739,38 +731,38 @@ if (btnCensoPrev) {
 }
 
 function updateBIStats(gender, med) {
-    // 1. Pyramid update (simply shift percentages slightly)
     const leftFills = document.querySelectorAll('.pyramid-bar-left .pyramid-fill');
     const rightFills = document.querySelectorAll('.pyramid-bar-right .pyramid-fill');
     
-    if (gender === 'M') {
-        // Adjust middle row values slightly
+    if (leftFills[2] && gender === 'M') {
         leftFills[2].style.width = '78%';
         leftFills[2].nextElementSibling.innerText = '78%';
-    } else {
+    } else if (rightFills[2]) {
         rightFills[2].style.width = '72%';
         rightFills[2].nextElementSibling.innerText = '72%';
     }
 
-    // 2. Medication demand counts increase
     if (med === 'Losartan') {
         const val = document.getElementById('losartanVal');
         const bar = document.getElementById('losartanBar');
-        const count = parseInt(val.innerText) + 1;
-        val.innerText = count;
-        bar.style.width = '95%';
+        if (val && bar) {
+            val.innerText = parseInt(val.innerText) + 1;
+            bar.style.width = '95%';
+        }
     } else if (med === 'Metformina') {
         const val = document.getElementById('metforminaVal');
         const bar = document.getElementById('metforminaBar');
-        const count = parseInt(val.innerText) + 1;
-        val.innerText = count;
-        bar.style.width = '72%';
+        if (val && bar) {
+            val.innerText = parseInt(val.innerText) + 1;
+            bar.style.width = '72%';
+        }
     } else if (med === 'Salbutamol') {
         const val = document.getElementById('salbutamolVal');
         const bar = document.getElementById('salbutamolBar');
-        const count = parseInt(val.innerText) + 1;
-        val.innerText = count;
-        bar.style.width = '42%';
+        if (val && bar) {
+            val.innerText = parseInt(val.innerText) + 1;
+            bar.style.width = '42%';
+        }
     }
 }
 
@@ -779,7 +771,6 @@ function updateCensusHistoryDOM() {
     if (!list) return;
 
     list.innerHTML = '';
-    
     [...censusHistory].reverse().forEach(record => {
         const statusClass = record.status === 'PENDIENTE' ? 'color: var(--accent-cyan);' : 'color: var(--accent-emerald);';
         
@@ -801,82 +792,333 @@ function updateCensusHistoryDOM() {
 }
 
 
-// ==========================================
-// SIMULATOR 3: ACARIGUA FITNESS HUB (Gym)
-// ==========================================
-const gymSchedule = {
-    lun_vie: [
-        { time: "06:00 AM", activityEs: "Crossfit WOD", activityEn: "Crossfit WOD", coach: "Antonio T.", intensity: "High" },
-        { time: "08:00 AM", activityEs: "Yoga Vinyasa", activityEn: "Vinyasa Yoga", coach: "Valeria M.", intensity: "Low" },
-        { time: "12:00 PM", activityEs: "Open Gym / Pesas", activityEn: "Open Gym / Weights", coach: "Alejandro R.", intensity: "Med" },
-        { time: "06:00 PM", activityEs: "Crossfit WOD", activityEn: "Crossfit WOD", coach: "Diego T.", intensity: "High" },
-        { time: "07:30 PM", activityEs: "Powerlifting Pro", activityEn: "Pro Powerlifting", coach: "Alejandro R.", intensity: "High" }
-    ],
-    sab: [
-        { time: "08:00 AM", activityEs: "Extreme HIIT", activityEn: "Extreme HIIT Circuit", coach: "Diego T.", intensity: "High" },
-        { time: "10:00 AM", activityEs: "Yoga Regenerativo", activityEn: "Restore Yoga", coach: "Valeria M.", intensity: "Low" },
-        { time: "11:30 AM", activityEs: "Open Gym / Pesas", activityEn: "Open Gym / Free Weights", coach: "Alejandro R.", intensity: "Med" }
-    ]
-};
+// ==========================================================================
+// SIMULATOR 3: URBANIZACION LOS ROBLES (Gate Security & Services Traffic)
+// ==========================================================================
+let gateActiveVehicles = [
+    { plate: "AB123CD", driver: "Carlos Mendoza", type: "Residente", time: "10:15 AM" },
+    { plate: "XY987ZT", driver: "Despacho Farmacia", type: "Proveedor", time: "11:30 AM" }
+];
 
-function renderGymSchedule() {
-    const tbody = document.getElementById('scheduleTableBody');
+function renderGateTable() {
+    const tbody = document.getElementById('gateTableBody');
     if (!tbody) return;
 
     tbody.innerHTML = '';
-    
-    // Check which tab button is active
-    const activeBtn = document.querySelector('#gymDaySelector .day-btn.active');
-    const selectedDay = activeBtn ? activeBtn.getAttribute('data-day') : 'lun_vie';
-    
-    const rows = gymSchedule[selectedDay] || [];
-    
-    rows.forEach(r => {
-        const activity = currentLanguage === 'es' ? r.activityEs : r.activityEn;
-        
-        let intensityClass = 'intensity-med';
-        if (r.intensity === 'High') intensityClass = 'intensity-high';
-        if (r.intensity === 'Low') intensityClass = 'intensity-low';
-        
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td class="schedule-time">${r.time}</td>
-            <td class="schedule-class">${activity}</td>
-            <td class="schedule-instructor">${r.coach}</td>
-            <td><span class="schedule-intensity ${intensityClass}">${r.intensity}</span></td>
+    if (gateActiveVehicles.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted); padding:16px;">No hay vehículos dentro del urbanismo en este momento.</td></tr>`;
+        return;
+    }
+
+    gateActiveVehicles.forEach((v, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td><strong style="color:var(--accent-cyan);">${v.plate}</strong></td>
+            <td>${v.driver}</td>
+            <td><span class="p-badge" style="font-size:0.7rem;">${v.type}</span></td>
+            <td style="color:var(--text-muted);">${v.time}</td>
+            <td>
+                <button class="btn-small-danger" onclick="exitVehicle(${index})">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Salida
+                </button>
+            </td>
         `;
-        tbody.appendChild(row);
+        tbody.appendChild(tr);
     });
 }
 
-// Day button clicks for scheduler
-const dayBtns = document.querySelectorAll('#gymDaySelector .day-btn');
-dayBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        dayBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderGymSchedule();
+function exitVehicle(index) {
+    if (index >= 0 && index < gateActiveVehicles.length) {
+        const exited = gateActiveVehicles.splice(index, 1)[0];
+        renderGateTable();
+        showToast(`${translations[currentLanguage].toast_gate_exit} (${exited.plate})`);
+    }
+}
+window.exitVehicle = exitVehicle;
+
+const btnGateEntry = document.getElementById('btnGateEntry');
+if (btnGateEntry) {
+    btnGateEntry.addEventListener('click', () => {
+        const plateInput = document.getElementById('gatePlate');
+        const driverInput = document.getElementById('gateDriver');
+        const typeSelect = document.getElementById('gateType');
+
+        const plate = plateInput.value.trim().toUpperCase();
+        const driver = driverInput.value.trim() || 'Visitante Autorizado';
+        const type = typeSelect.value;
+
+        if (!plate) {
+            showToast("Por favor ingresa la placa del vehículo.", "error");
+            return;
+        }
+
+        // Check if plate already has an open entry (Strict Security Rule)
+        const isDuplicate = gateActiveVehicles.some(v => v.plate === plate);
+        if (isDuplicate) {
+            showToast(`${translations[currentLanguage].toast_gate_duplicate} [${plate}]`, 'error');
+            return;
+        }
+
+        const newEntry = {
+            plate: plate,
+            driver: driver,
+            type: type,
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        };
+
+        gateActiveVehicles.push(newEntry);
+        plateInput.value = '';
+        driverInput.value = '';
+        renderGateTable();
+        showToast(`${translations[currentLanguage].toast_gate_success} [${plate}]`);
+    });
+}
+
+// Services Traffic Light Cycle
+const serviceStates = {
+    agua: { state: 'green', textEs: 'Operativo', textEn: 'Operational' },
+    luz: { state: 'green', textEs: 'Operativo', textEn: 'Operational' },
+    gas: { state: 'yellow', textEs: 'En distribución', textEn: 'In Distribution' },
+    aseo: { state: 'green', textEs: 'Al día', textEn: 'On Schedule' },
+    seguridad: { state: 'green', textEs: '100% Activa', textEn: '100% Active' }
+};
+
+const serviceItems = document.querySelectorAll('.service-traffic-item');
+serviceItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const sKey = item.getAttribute('data-service');
+        const pill = document.getElementById(`pill-${sKey}`);
+        if (!pill || !serviceStates[sKey]) return;
+
+        const curr = serviceStates[sKey].state;
+        if (curr === 'green') {
+            serviceStates[sKey].state = 'yellow';
+            serviceStates[sKey].textEs = 'Inestable';
+            serviceStates[sKey].textEn = 'Unstable';
+            pill.className = 'traffic-pill pill-yellow';
+            pill.innerHTML = `<i class="fa-solid fa-clock"></i> ${currentLanguage === 'es' ? 'Inestable' : 'Unstable'}`;
+        } else if (curr === 'yellow') {
+            serviceStates[sKey].state = 'red';
+            serviceStates[sKey].textEs = 'Interrumpido';
+            serviceStates[sKey].textEn = 'Disrupted';
+            pill.className = 'traffic-pill pill-red';
+            pill.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> ${currentLanguage === 'es' ? 'Interrumpido' : 'Disrupted'}`;
+        } else {
+            serviceStates[sKey].state = 'green';
+            serviceStates[sKey].textEs = 'Operativo';
+            serviceStates[sKey].textEn = 'Operational';
+            pill.className = 'traffic-pill pill-green';
+            pill.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${currentLanguage === 'es' ? 'Operativo' : 'Operational'}`;
+        }
+
+        showToast(translations[currentLanguage].toast_service_toggle);
     });
 });
 
-// Visitor counter tick simulator
-function startVisitorTicker() {
-    const counterEl = document.getElementById('activeMembers');
-    if (!counterEl) return;
 
-    setInterval(() => {
-        const current = parseInt(counterEl.innerText);
-        // Ticks up/down by -4 to +6
-        const delta = Math.floor(Math.random() * 11) - 4; 
-        const nextVal = Math.max(350, Math.min(500, current + delta));
-        counterEl.innerText = nextVal;
-    }, 4000);
+// ==========================================================================
+// SIMULATOR 4: ROBLE MARKET (E-Commerce & POS)
+// ==========================================================================
+const robleProducts = [
+    { id: 1, nameEs: "Harina PAN de Maíz 1kg", nameEn: "PAN Corn Flour 1kg", price: 1.10, stock: 0, icon: "fa-solid fa-wheat-awn" },
+    { id: 2, nameEs: "Nutella Chocolate 350g", nameEn: "Nutella Spread 350g", price: 5.50, stock: 12, icon: "fa-solid fa-jar" },
+    { id: 3, nameEs: "Coca-Cola Refresco 2L", nameEn: "Coca-Cola Soda 2L", price: 2.00, stock: 8, icon: "fa-solid fa-bottle-water" },
+    { id: 4, nameEs: "Cerveza Polar Light Tercio", nameEn: "Polar Light Beer 330ml", price: 1.50, stock: 24, icon: "fa-solid fa-beer-mug-empty" },
+    { id: 5, nameEs: "Queso Amarillo Paisa 1kg", nameEn: "Yellow Cheese Paisa 1kg", price: 6.20, stock: 5, icon: "fa-solid fa-cheese" },
+    { id: 6, nameEs: "Café Fama de América 500g", nameEn: "Fama de America Coffee 500g", price: 4.80, stock: 15, icon: "fa-solid fa-mug-hot" }
+];
+
+let cart = [];
+const deliveryPrice = 2.50;
+
+function renderRobleProducts() {
+    const grid = document.getElementById('catalogGrid');
+    const searchInput = document.getElementById('robleSearch');
+    const searchVal = searchInput ? searchInput.value.toLowerCase() : '';
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    const filtered = robleProducts.filter(p => {
+        const name = currentLanguage === 'es' ? p.nameEs.toLowerCase() : p.nameEn.toLowerCase();
+        return name.includes(searchVal);
+    });
+
+    filtered.forEach(p => {
+        const isOutOfStock = p.stock === 0;
+        const name = currentLanguage === 'es' ? p.nameEs : p.nameEn;
+        
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <div class="product-badge ${isOutOfStock ? 'badge-out' : 'badge-in'}">
+                ${isOutOfStock ? translations[currentLanguage].out_of_stock_tag : translations[currentLanguage].in_stock_tag}
+            </div>
+            <div class="product-icon-wrap">
+                <i class="${p.icon}"></i>
+            </div>
+            <div class="product-info">
+                <h4>${name}</h4>
+                <div class="product-meta">
+                    <span class="product-price">$${p.price.toFixed(2)}</span>
+                    <span class="product-stock">${isOutOfStock ? '' : `Stock: ${p.stock}`}</span>
+                </div>
+            </div>
+            <button class="btn-add-cart" ${isOutOfStock ? 'disabled' : ''} onclick="addToCart(${p.id})">
+                <i class="fa-solid fa-cart-plus"></i>
+            </button>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function addToCart(productId) {
+    const prod = robleProducts.find(p => p.id === productId);
+    if (!prod || prod.stock === 0) return;
+
+    const existing = cart.find(item => item.id === productId);
+    if (existing) {
+        if (existing.qty < prod.stock) {
+            existing.qty++;
+            showToast(`${translations[currentLanguage].toast_add_cart} ${currentLanguage === 'es' ? prod.nameEs : prod.nameEn}`);
+        } else {
+            showToast(translations[currentLanguage].toast_limit, 'error');
+        }
+    } else {
+        cart.push({ id: prod.id, nameEs: prod.nameEs, nameEn: prod.nameEn, price: prod.price, qty: 1 });
+        showToast(`${translations[currentLanguage].toast_add_cart} ${currentLanguage === 'es' ? prod.nameEs : prod.nameEn}`);
+    }
+
+    updateCartDOM();
+}
+window.addToCart = addToCart;
+
+function updateCartDOM() {
+    const list = document.getElementById('cartItemsList');
+    const subtotalEl = document.getElementById('cartSubtotal');
+    const deliveryEl = document.getElementById('cartDelivery');
+    const totalEl = document.getElementById('cartTotal');
+    const countEl = document.getElementById('cartCount');
+    const btnPay = document.getElementById('btnCheckout');
+
+    if (!list) return;
+
+    list.innerHTML = '';
+    
+    let subtotal = 0;
+    let totalItems = 0;
+
+    if (cart.length === 0) {
+        list.innerHTML = `<div class="cart-empty">${translations[currentLanguage].roble_cart_empty}</div>`;
+        if (btnPay) btnPay.disabled = true;
+    } else {
+        if (btnPay) btnPay.disabled = false;
+        
+        cart.forEach((item, index) => {
+            subtotal += item.price * item.qty;
+            totalItems += item.qty;
+            
+            const name = currentLanguage === 'es' ? item.nameEs : item.nameEn;
+            const row = document.createElement('div');
+            row.className = 'cart-item-row';
+            row.innerHTML = `
+                <div class="cart-item-desc">
+                    <span class="cart-item-name">${name}</span>
+                    <span class="cart-item-unit-price">$${item.price.toFixed(2)} c/u</span>
+                </div>
+                <div class="cart-item-ctrls">
+                    <button class="btn-qty" onclick="changeQty(${index}, -1)">-</button>
+                    <span class="qty-count">${item.qty}</span>
+                    <button class="btn-qty" onclick="changeQty(${index}, 1)">+</button>
+                    <button class="btn-remove" onclick="removeFromCart(${index})"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            `;
+            list.appendChild(row);
+        });
+    }
+
+    let isDelivery = false;
+    const deliveryRadio = document.getElementById('deliveryShip');
+    if (deliveryRadio && deliveryRadio.checked) isDelivery = true;
+
+    const shipping = (cart.length > 0 && isDelivery) ? deliveryPrice : 0.00;
+    const grandTotal = subtotal + shipping;
+
+    if (subtotalEl) subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+    if (deliveryEl) deliveryEl.innerText = `$${shipping.toFixed(2)}`;
+    if (totalEl) totalEl.innerText = `$${grandTotal.toFixed(2)}`;
+    if (countEl) countEl.innerText = totalItems;
+}
+
+function changeQty(index, delta) {
+    if (!cart[index]) return;
+    const prod = robleProducts.find(p => p.id === cart[index].id);
+    
+    const newQty = cart[index].qty + delta;
+    if (newQty <= 0) {
+        cart.splice(index, 1);
+    } else if (newQty > prod.stock) {
+        showToast(translations[currentLanguage].toast_limit, 'error');
+    } else {
+        cart[index].qty = newQty;
+    }
+    updateCartDOM();
+}
+window.changeQty = changeQty;
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartDOM();
+}
+window.removeFromCart = removeFromCart;
+
+// Bind Search Box
+const robleSearch = document.getElementById('robleSearch');
+if (robleSearch) {
+    robleSearch.addEventListener('input', renderRobleProducts);
+}
+
+// Payment Modal Controller
+const checkoutModal = document.getElementById('checkoutModal');
+const btnCheckout = document.getElementById('btnCheckout');
+const modalCloseBtn = document.getElementById('modalCloseBtn');
+const btnConfirmPayment = document.getElementById('btnConfirmPayment');
+const pmModalAmount = document.getElementById('pmModalAmount');
+
+if (btnCheckout) {
+    btnCheckout.addEventListener('click', () => {
+        const total = document.getElementById('cartTotal').innerText;
+        if (pmModalAmount) pmModalAmount.innerText = total;
+        if (checkoutModal) checkoutModal.classList.add('open');
+    });
+}
+
+if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', () => {
+        if (checkoutModal) checkoutModal.classList.remove('open');
+    });
+}
+
+if (btnConfirmPayment) {
+    btnConfirmPayment.addEventListener('click', () => {
+        const ref = document.getElementById('pmRef').value.trim();
+        if (ref.length !== 4) {
+            showToast(translations[currentLanguage].toast_pm_invalid, 'error');
+            return;
+        }
+
+        checkoutModal.classList.remove('open');
+        document.getElementById('pmRef').value = '';
+        cart = [];
+        updateCartDOM();
+        showToast(translations[currentLanguage].toast_pm_success);
+    });
 }
 
 
-// ==========================================
+// ==========================================================================
 // APPLICATION INITIALIZATION
-// ==========================================
+// ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     // Language Switcher Bind
     const langBtn = document.getElementById('langBtn');
@@ -895,8 +1137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileNavButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const tabName = btn.getAttribute('data-tab');
-            
-            // Mirror onto desktop sidebar buttons
             const desktopBtn = document.querySelector(`.sidebar .nav-item[data-tab="${tabName}"]`);
             if (desktopBtn) desktopBtn.click();
         });
@@ -904,5 +1144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Run Initializers
     applyLanguage(currentLanguage);
-    startVisitorTicker();
+    renderTriageHistoryDOM();
+    updateCensusHistoryDOM();
+    renderGateTable();
 });
