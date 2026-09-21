@@ -3,7 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luis Gallardo | Portfolio & CV Dashboard</title>
+    <title>Luis Gallardo | Software Engineer & Systems Analyst</title>
+    <meta name="description" content="Luis Gallardo — Ingeniero de Software & Analista de Sistemas Full-Stack. Portafolio profesional y sistemas en producción (Next.js, FastAPI, PostgreSQL, Supabase, Capacitor, PWA).">
+    <meta name="keywords" content="Luis Gallardo, Ingeniero de Software, Analista de Sistemas, Full-Stack, Next.js, FastAPI, PostgreSQL, Supabase, Venezuela, Portafolio">
+    <meta name="author" content="Luis Gallardo">
+    <meta name="theme-color" content="#060913">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="avatar.svg">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/lgallardo04/portfolio-dashboard">
+    <meta property="og:title" content="Luis Gallardo | Software Engineer & Systems Analyst">
+    <meta property="og:description" content="Portafolio profesional y sistemas interactivos: CDI Salud Integral, Araure Tricentenaria, Urbanización Los Robles y Roble Market.">
+    <meta property="og:image" content="avatar.svg">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Luis Gallardo | Software Engineer & Systems Analyst">
+    <meta property="twitter:description" content="Portafolio profesional y sistemas interactivos: CDI Salud Integral, Araure Tricentenaria, Urbanización Los Robles y Roble Market.">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,11 +120,15 @@
                     <p data-i18n="header_sub_title">Currículum & Sistemas de Software por Luis Gallardo</p>
                 </div>
                 
-                <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
                     <a href="Currículum Luis Gallardo.pdf" download="Currículum Luis Gallardo.pdf" class="btn-download-cv" id="btnDownloadCvTop">
                         <i class="fa-solid fa-file-arrow-down"></i>
                         <span data-i18n="btn_download_cv">Descargar CV</span>
                     </a>
+                    <button type="button" class="btn-print-cv" id="btnPrintCv" title="Imprimir Currículum">
+                        <i class="fa-solid fa-print"></i>
+                        <span data-i18n="btn_print_cv">Imprimir</span>
+                    </button>
                     <div class="badge-status">
                         <span class="status-dot"></span>
                         <span data-i18n="status_active">Disponible para proyectos</span>
@@ -517,9 +541,29 @@
                                 <h3 data-i18n="cdi_triage_title">Triaje de Urgencias Clínico (NEWS2)</h3>
                                 <span class="p-badge emerald"><i class="fa-solid fa-heart-pulse"></i> Calculador en Vivo</span>
                             </div>
-                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;" data-i18n="cdi_triage_desc">
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;" data-i18n="cdi_triage_desc">
                                 Ingresa o modifica los signos vitales del paciente para calcular automáticamente el puntaje National Early Warning Score (NEWS2) y la clasificación de riesgo médico recomendada:
                             </p>
+
+                            <!-- Quick Clinical Presets -->
+                            <div class="preset-cases-row">
+                                <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;" data-i18n="cdi_presets_label">Casos Clínicos de Prueba:</span>
+                                <button type="button" class="btn-preset-case" data-preset="stable"><i class="fa-solid fa-user-check"></i> <span data-i18n="cdi_preset_stable">Estable (0 pts)</span></button>
+                                <button type="button" class="btn-preset-case" data-preset="warning"><i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="cdi_preset_warning">Infección (5 pts)</span></button>
+                                <button type="button" class="btn-preset-case" data-preset="critical"><i class="fa-solid fa-truck-medical"></i> <span data-i18n="cdi_preset_critical">Sepsis Crítica (9 pts)</span></button>
+                            </div>
+
+                            <!-- Patient Name & Age inputs -->
+                            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-bottom: 12px;">
+                                <div class="vital-box">
+                                    <label for="newsPatientName" data-i18n="cdi_patient_name">Nombre del Paciente</label>
+                                    <input type="text" id="newsPatientName" value="Carlos E. Mendoza" class="form-control" style="background: rgba(255,255,255,0.05); border: 1px solid var(--card-border); color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 0.88rem;">
+                                </div>
+                                <div class="vital-box">
+                                    <label for="newsPatientAge" data-i18n="cdi_patient_age">Edad</label>
+                                    <input type="number" id="newsPatientAge" value="45" min="1" max="110" class="form-control" style="background: rgba(255,255,255,0.05); border: 1px solid var(--card-border); color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 0.88rem;">
+                                </div>
+                            </div>
 
                             <div class="vitals-grid">
                                 <div class="vital-box">
@@ -610,7 +654,7 @@
                         <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
                                 <h3 data-i18n="cdi_history_title" style="margin-bottom: 12px;">Pacientes en Triaje Hospitalario</h3>
-                                <div class="health-records-preview" id="triageHistoryList" style="max-height: 220px; overflow-y: auto;">
+                                <div class="health-records-preview" id="triageHistoryList" style="max-height: 240px; overflow-y: auto;">
                                     <!-- Injected by JavaScript -->
                                 </div>
                             </div>
@@ -851,7 +895,7 @@
                                 <h3 data-i18n="robles_gate_title">Bitácora de Garita y Control de Accesos</h3>
                                 <span class="p-badge cyan"><i class="fa-solid fa-shield-halved"></i> Prevención Anti-Doble Ingreso</span>
                             </div>
-                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;" data-i18n="robles_gate_desc">
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 14px;" data-i18n="robles_gate_desc">
                                 El sistema de seguridad perimetral valida las placas en tiempo real e impide que un mismo vehículo registre dos ingresos simultáneos sin antes registrar su salida:
                             </p>
 
@@ -870,7 +914,17 @@
                                 </button>
                             </div>
 
-                            <h4 style="font-size: 0.9rem; margin: 16px 0 8px 0; color: var(--accent-cyan);" data-i18n="robles_inside_title">Vehículos Actualmente Dentro del Urbanismo</h4>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin: 16px 0 8px 0;">
+                                <h4 style="font-size: 0.88rem; color: var(--accent-cyan); margin: 0;" data-i18n="robles_inside_title">Vehículos Actualmente Dentro del Urbanismo</h4>
+                                <!-- Gate Filters -->
+                                <div class="gate-filter-row" style="margin-bottom: 0;">
+                                    <button class="gate-filter-btn active" data-filter="all">Todos</button>
+                                    <button class="gate-filter-btn" data-filter="Residente">Residentes</button>
+                                    <button class="gate-filter-btn" data-filter="Visitante">Visitas</button>
+                                    <button class="gate-filter-btn" data-filter="Proveedor">Proveedores</button>
+                                </div>
+                            </div>
+                            
                             <div class="gate-table-wrapper">
                                 <table class="gate-table">
                                     <thead>
@@ -889,7 +943,7 @@
                             </div>
                         </div>
 
-                        <!-- Right: Public Services Traffic Light & Indicators -->
+                        <!-- Right: Public Services Traffic Light & Condominium Simulation -->
                         <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
                                 <h3 data-i18n="robles_services_title">Semáforo de Servicios Comunales</h3>
@@ -960,17 +1014,32 @@
                                 </div>
                             </div>
 
-                            <div style="margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.06);">
-                                <h4 style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px;" data-i18n="robles_solvency_title">Métricas de Catastro & Condominio</h4>
-                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <!-- Condominium & Solvency FIFO Module -->
+                            <div class="condo-payment-card">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <h4 style="font-size: 0.85rem; color: var(--accent-cyan); margin: 0;" data-i18n="robles_solvency_title">Condominio & Tesorería Bimonetaria</h4>
+                                    <span class="condo-rate-pill">Tasa BCV: 42.50 Bs/$</span>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.78rem; margin-bottom: 10px;">
                                     <div class="vital-box">
-                                        <span style="font-size: 0.75rem; color: var(--text-muted);">Parcelas Registradas</span>
-                                        <strong style="font-size: 1.1rem; color: var(--accent-cyan);">120 Parcelas</strong>
+                                        <span style="color:var(--text-muted);">Cuota Mensual:</span>
+                                        <strong>$25.00 / 1.062,50 Bs.</strong>
                                     </div>
                                     <div class="vital-box">
-                                        <span style="font-size: 0.75rem; color: var(--text-muted);">Solvencia Comunitaria</span>
-                                        <strong style="font-size: 1.1rem; color: var(--accent-emerald);">98.4% Solvente</strong>
+                                        <span style="color:var(--text-muted);">Imputación Contable:</span>
+                                        <strong style="color:var(--accent-emerald);">Algoritmo FIFO</strong>
                                     </div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <select id="condoParcelSelect" class="form-control" style="font-size: 0.8rem; padding: 6px 8px;">
+                                        <option value="A-01">Parcela A-01 (Solvente)</option>
+                                        <option value="B-14">Parcela B-14 (1 Cuota Pdte)</option>
+                                        <option value="C-03">Parcela C-03 (Solvente)</option>
+                                        <option value="D-08">Parcela D-08 (2 Cuotas Pdtes)</option>
+                                    </select>
+                                    <button class="btn-checkout" id="btnPayCondo" style="margin-top: 0; padding: 6px 12px; font-size: 0.78rem; white-space: nowrap;">
+                                        <i class="fa-solid fa-receipt"></i> Simular Pago FIFO
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1001,10 +1070,15 @@
                     <div class="roble-grid">
                         <!-- Store catalog -->
                         <div class="glass-card">
-                            <div class="roble-controls">
-                                <div class="search-input-wrapper">
+                            <div class="roble-controls" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                <div class="search-input-wrapper" style="flex: 1; min-width: 200px;">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                     <input type="text" class="roble-search" id="robleSearch" placeholder="Buscar productos en Roble Market..." data-i18n-placeholder="roble_search_placeholder">
+                                </div>
+                                <!-- Currency Toggle (USD / VES) -->
+                                <div class="currency-toggle-wrapper">
+                                    <button type="button" class="currency-btn active" data-curr="USD">$ USD</button>
+                                    <button type="button" class="currency-btn" data-curr="VES">Bs. BCV</button>
                                 </div>
                             </div>
                             
@@ -1050,7 +1124,14 @@
                                 </div>
                             </div>
 
-                            <button class="btn-checkout" id="btnCheckout" disabled data-i18n="roble_btn_pay">Proceder a Pagar</button>
+                            <div style="display: flex; gap: 8px; margin-top: 14px;">
+                                <button type="button" class="btn-checkout" id="btnClearCart" style="margin-top: 0; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: var(--text-muted); flex: 1;" title="Vaciar Carrito">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                <button type="button" class="btn-checkout" id="btnCheckout" disabled data-i18n="roble_btn_pay" style="margin-top: 0; flex: 4;">
+                                    Proceder a Pagar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

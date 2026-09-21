@@ -2246,3 +2246,199 @@ a:hover {
         align-items: flex-start;
     }
 }
+
+/* ==========================================================================
+   ADVANCED POLISH & INTERACTIVE ENHANCEMENTS
+   ========================================================================== */
+
+/* Preset cases buttons for CDI */
+.preset-cases-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn-preset-case {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-preset-case:hover {
+    background: rgba(0, 240, 255, 0.12);
+    border-color: var(--accent-cyan);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.btn-preset-case[data-preset="stable"]:hover {
+    border-color: var(--accent-emerald);
+    color: var(--accent-emerald);
+}
+
+.btn-preset-case[data-preset="warning"]:hover {
+    border-color: var(--accent-yellow);
+    color: var(--accent-yellow);
+}
+
+.btn-preset-case[data-preset="critical"]:hover {
+    border-color: var(--accent-red);
+    color: var(--accent-red);
+}
+
+/* Print CV Button */
+.btn-print-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.btn-print-cv:hover {
+    background: rgba(0, 240, 255, 0.15);
+    color: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+}
+
+/* Currency switcher for Roble Market */
+.currency-toggle-wrapper {
+    display: inline-flex;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 3px;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    margin-left: auto;
+}
+
+.currency-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.currency-btn.active {
+    background: var(--accent-cyan);
+    color: #060913;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+/* Gate filter buttons */
+.gate-filter-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.gate-filter-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.gate-filter-btn.active, .gate-filter-btn:hover {
+    background: rgba(0, 240, 255, 0.15);
+    color: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+}
+
+/* Condominium Payment Form in Los Robles */
+.condo-payment-card {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.condo-rate-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 255, 133, 0.1);
+    border: 1px solid rgba(0, 255, 133, 0.3);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: var(--accent-emerald);
+    font-weight: 600;
+}
+
+/* Print Stylesheet for flawless printing */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        background-image: none !important;
+    }
+    
+    .sidebar, .dashboard-header, .mobile-nav-bar, .modal-overlay, .toast-container,
+    .btn-download-cv, .btn-print-cv, .portfolio-intro, .portfolio-tabs {
+        display: none !important;
+    }
+    
+    .dashboard-container {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .main-content {
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .tab-content {
+        display: block !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .glass-card {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #0f172a !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+    
+    h1, h2, h3, h4 {
+        color: #0f172a !important;
+    }
+    
+    .skill-bar-bg {
+        background: #e2e8f0 !important;
+    }
+    
+    .skill-bar-fill {
+        background: #0284c7 !important;
+    }
+}

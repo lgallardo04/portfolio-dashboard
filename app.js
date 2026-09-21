@@ -7,6 +7,7 @@ const translations = {
     es: {
         sidebar_title: "Ingeniero de Software / Analista",
         btn_download_cv: "Descargar CV (PDF)",
+        btn_print_cv: "Imprimir CV",
         menu_overview: "Resumen",
         menu_experience: "Trayectoria",
         menu_education: "Formación",
@@ -71,6 +72,12 @@ const translations = {
         portfolio_sub: "Explora y ejecuta simulaciones interactivas en tiempo real de los 4 sistemas de ingeniería desarrollados por Luis Gallardo.",
         cdi_triage_title: "Triaje de Urgencias Clínico (NEWS2)",
         cdi_triage_desc: "Ingresa o modifica los signos vitales del paciente para calcular automáticamente el puntaje National Early Warning Score (NEWS2) y la clasificación de riesgo médico recomendada:",
+        cdi_presets_label: "Casos Clínicos de Prueba:",
+        cdi_preset_stable: "Estable (0 pts)",
+        cdi_preset_warning: "Infección (5 pts)",
+        cdi_preset_critical: "Sepsis Crítica (9 pts)",
+        cdi_patient_name: "Nombre del Paciente",
+        cdi_patient_age: "Edad",
         cdi_label_pa: "Presión Arterial Sistólica",
         cdi_label_fc: "Frecuencia Cardíaca",
         cdi_label_fr: "Frecuencia Respiratoria",
@@ -88,7 +95,7 @@ const translations = {
         robles_inside_title: "Vehículos Actualmente Dentro del Urbanismo",
         robles_services_title: "Semáforo de Servicios Comunales",
         robles_services_desc: "Haz clic en cualquier servicio para alternar su estado en tiempo real (Operativo / Inestable / Interrumpido):",
-        robles_solvency_title: "Métricas de Catastro & Condominio",
+        robles_solvency_title: "Condominio & Tesorería Bimonetaria",
         araure_bi_title: "BI Demográfico - Censo Escuela",
         araure_pyr_title: "Pirámide de Población (Censo Comunal)",
         araure_pyr_men: "MASCULINO (Cian)",
@@ -136,6 +143,7 @@ const translations = {
         pm_btn_confirm: "Confirmar Pago Móvil",
         toast_add_cart: "Agregado al carrito: ",
         toast_limit: "Límite de stock alcanzado.",
+        toast_cart_cleared: "Carrito vaciado.",
         toast_pm_success: "¡Pago Móvil Confirmado! Webhook bancario recibido.",
         toast_pm_invalid: "Error: Ingresa los 4 dígitos de la referencia bancaria.",
         toast_censo_success: "Censo enviado. Registrado localmente como PENDIENTE.",
@@ -145,6 +153,7 @@ const translations = {
         toast_gate_duplicate: "¡Violación de seguridad! La placa ya tiene un ingreso abierto en garita.",
         toast_gate_exit: "Salida registrada. El vehículo ya no se encuentra en el urbanismo.",
         toast_service_toggle: "Estado del servicio actualizado en la cartelera comunitaria.",
+        toast_condo_paid: "Pago de condominio registrado exitosamente bajo imputación contable FIFO.",
         lang_switch_desc: "Español",
         out_of_stock_tag: "AGOTADO",
         in_stock_tag: "DISPONIBLE"
@@ -152,6 +161,7 @@ const translations = {
     en: {
         sidebar_title: "Software Engineer / Analyst",
         btn_download_cv: "Download CV (PDF)",
+        btn_print_cv: "Print CV",
         menu_overview: "Overview",
         menu_experience: "Experience",
         menu_education: "Education",
@@ -216,6 +226,12 @@ const translations = {
         portfolio_sub: "Explore and run live interactive simulations of the 4 engineering software systems built by Luis Gallardo.",
         cdi_triage_title: "Clinical Emergency Triage (NEWS2)",
         cdi_triage_desc: "Enter or adjust the patient's vital signs to calculate the National Early Warning Score (NEWS2) and recommended clinical action in real time:",
+        cdi_presets_label: "Clinical Test Presets:",
+        cdi_preset_stable: "Stable (0 pts)",
+        cdi_preset_warning: "Infection (5 pts)",
+        cdi_preset_critical: "Severe Sepsis (9 pts)",
+        cdi_patient_name: "Patient Full Name",
+        cdi_patient_age: "Age",
         cdi_label_pa: "Systolic Blood Pressure",
         cdi_label_fc: "Heart Rate",
         cdi_label_fr: "Respiration Rate",
@@ -233,7 +249,7 @@ const translations = {
         robles_inside_title: "Vehicles Currently Inside Community",
         robles_services_title: "Community Public Services Traffic Light",
         robles_services_desc: "Click any service to toggle its real-time public status (Operational / Unstable / Disrupted):",
-        robles_solvency_title: "Cadastre & Condominium Metrics",
+        robles_solvency_title: "Bi-Monetary Condominium & Treasury",
         araure_bi_title: "Demographic BI - School Census",
         araure_pyr_title: "Population Pyramid (Community Census)",
         araure_pyr_men: "MALE (Cyan)",
@@ -281,6 +297,7 @@ const translations = {
         pm_btn_confirm: "Confirm Mobile Payment",
         toast_add_cart: "Added to cart: ",
         toast_limit: "Stock limit reached.",
+        toast_cart_cleared: "Cart emptied.",
         toast_pm_success: "Payment confirmed! Banking webhook verified.",
         toast_pm_invalid: "Error: Please enter the 4-digit bank reference.",
         toast_censo_success: "Census submitted. Saved locally as PENDING.",
@@ -290,6 +307,7 @@ const translations = {
         toast_gate_duplicate: "Security violation! License plate already has an open entry.",
         toast_gate_exit: "Exit recorded. Vehicle has left the community.",
         toast_service_toggle: "Service status updated on the public community board.",
+        toast_condo_paid: "Condominium payment successfully logged under FIFO accounting criteria.",
         lang_switch_desc: "English",
         out_of_stock_tag: "OUT OF STOCK",
         in_stock_tag: "IN STOCK"
@@ -297,12 +315,22 @@ const translations = {
 };
 
 let currentLanguage = 'es';
+let currentCurrency = 'USD';
+const BCV_RATE = 42.50; // Bs. per USD official rate
+
+function formatCurrencyPrice(usdVal) {
+    if (currentCurrency === 'VES') {
+        const vesVal = (usdVal * BCV_RATE).toFixed(2);
+        return `Bs. ${vesVal}`;
+    }
+    return `$${usdVal.toFixed(2)}`;
+}
 
 function applyLanguage(lang) {
     currentLanguage = lang;
     document.documentElement.lang = lang;
     
-    // Update simple text nodes
+    // Update text nodes
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -326,7 +354,7 @@ function applyLanguage(lang) {
         langBtn.querySelector('span').innerText = lang === 'es' ? 'English' : 'Español';
     }
 
-    // Refresh dynamically generated components
+    // Refresh dynamic components
     renderRobleProducts();
     updateCartDOM();
     calculateNEWS2();
@@ -360,7 +388,6 @@ function showToast(message, type = 'success') {
 // 3. MAIN DASHBOARD TABS NAVIGATION
 const navItems = document.querySelectorAll('.nav-item');
 const tabContents = document.querySelectorAll('.tab-content');
-const pageTitle = document.getElementById('pageTitle');
 const sidebar = document.getElementById('sidebar');
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 
@@ -368,11 +395,9 @@ navItems.forEach(item => {
     item.addEventListener('click', () => {
         const tab = item.getAttribute('data-tab');
         
-        // Active item highlight
         navItems.forEach(i => i.classList.remove('active'));
         item.classList.add('active');
 
-        // Sync mobile bottom bar
         const mobileBtns = document.querySelectorAll('.mobile-nav-btn');
         mobileBtns.forEach(b => {
             if (b.getAttribute('data-tab') === tab) {
@@ -382,7 +407,6 @@ navItems.forEach(item => {
             }
         });
 
-        // Show matching content
         tabContents.forEach(content => {
             if (content.id === tab) {
                 content.classList.add('active');
@@ -391,12 +415,10 @@ navItems.forEach(item => {
             }
         });
 
-        // Trigger animation for skill bars if tab is skills
         if (tab === 'skills') {
             animateSkillBars();
         }
 
-        // Close mobile sidebar if open
         if (sidebar && sidebar.classList.contains('open')) {
             sidebar.classList.remove('open');
         }
@@ -406,6 +428,14 @@ navItems.forEach(item => {
 if (hamburgerBtn) {
     hamburgerBtn.addEventListener('click', () => {
         if (sidebar) sidebar.classList.toggle('open');
+    });
+}
+
+// Print CV Button
+const btnPrintCv = document.getElementById('btnPrintCv');
+if (btnPrintCv) {
+    btnPrintCv.addEventListener('click', () => {
+        window.print();
     });
 }
 
@@ -443,7 +473,7 @@ projTabButtons.forEach(btn => {
 
 
 // ==========================================================================
-// SIMULATOR 1: CDI SALUD INTEGRAL (NEWS2 Triage Calculator)
+// SIMULATOR 1: CDI SALUD INTEGRAL (NEWS2 Triage Calculator & Presets)
 // ==========================================================================
 function calculateNEWS2() {
     const paEl = document.getElementById('newsPa');
@@ -558,6 +588,48 @@ function calculateNEWS2() {
     }
 }
 
+// Preset cases buttons for NEWS2
+const presetButtons = document.querySelectorAll('.btn-preset-case');
+presetButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const preset = btn.getAttribute('data-preset');
+        const paEl = document.getElementById('newsPa');
+        const fcEl = document.getElementById('newsFc');
+        const frEl = document.getElementById('newsFr');
+        const tempEl = document.getElementById('newsTemp');
+        const spo2El = document.getElementById('newsSpo2');
+        const avpuEl = document.getElementById('newsAvpu');
+        const o2El = document.getElementById('newsO2');
+
+        if (preset === 'stable') {
+            if (paEl) paEl.value = 120;
+            if (fcEl) fcEl.value = 75;
+            if (frEl) frEl.value = 16;
+            if (tempEl) tempEl.value = 36.8;
+            if (spo2El) spo2El.value = 98;
+            if (avpuEl) avpuEl.value = 'A';
+            if (o2El) o2El.checked = false;
+        } else if (preset === 'warning') {
+            if (paEl) paEl.value = 104;
+            if (fcEl) fcEl.value = 102;
+            if (frEl) frEl.value = 22;
+            if (tempEl) tempEl.value = 38.4;
+            if (spo2El) spo2El.value = 93;
+            if (avpuEl) avpuEl.value = 'A';
+            if (o2El) o2El.checked = false;
+        } else if (preset === 'critical') {
+            if (paEl) paEl.value = 84;
+            if (fcEl) fcEl.value = 132;
+            if (frEl) frEl.value = 28;
+            if (tempEl) tempEl.value = 39.4;
+            if (spo2El) spo2El.value = 89;
+            if (avpuEl) avpuEl.value = 'V';
+            if (o2El) o2El.checked = true;
+        }
+        calculateNEWS2();
+    });
+});
+
 // Bind NEWS2 vital sign input change events
 ['newsPa', 'newsFc', 'newsFr', 'newsTemp', 'newsSpo2', 'newsAvpu'].forEach(id => {
     const el = document.getElementById(id);
@@ -611,9 +683,10 @@ if (btnSaveTriage) {
         if (scoreVal >= 7) riskLabel = "ALTO";
         else if (scoreVal >= 5) riskLabel = "MEDIO";
 
-        const sampleNames = ["Andrés Parra", "Carmen Valera", "José Lucena", "Beatriz Romero", "Marcos Silva"];
-        const randomName = sampleNames[Math.floor(Math.random() * sampleNames.length)];
-        const randomAge = Math.floor(Math.random() * 50) + 25;
+        const nameInput = document.getElementById('newsPatientName');
+        const ageInput = document.getElementById('newsPatientAge');
+        const patientName = nameInput ? nameInput.value.trim() || 'Paciente Anónimo' : 'Paciente Anónimo';
+        const patientAge = ageInput ? parseInt(ageInput.value) || 40 : 40;
 
         const paVal = document.getElementById('newsPa').value;
         const fcVal = document.getElementById('newsFc').value;
@@ -622,8 +695,8 @@ if (btnSaveTriage) {
         const spo2Val = document.getElementById('newsSpo2').value;
 
         const newTriageEntry = {
-            name: randomName,
-            age: randomAge,
+            name: patientName,
+            age: patientAge,
             pa: `${paVal}/80`,
             fc: fcVal,
             fr: frVal,
@@ -793,24 +866,32 @@ function updateCensusHistoryDOM() {
 
 
 // ==========================================================================
-// SIMULATOR 3: URBANIZACION LOS ROBLES (Gate Security & Services Traffic)
+// SIMULATOR 3: URBANIZACION LOS ROBLES (Gate Log, Filter, & Condo FIFO)
 // ==========================================================================
 let gateActiveVehicles = [
     { plate: "AB123CD", driver: "Carlos Mendoza", type: "Residente", time: "10:15 AM" },
     { plate: "XY987ZT", driver: "Despacho Farmacia", type: "Proveedor", time: "11:30 AM" }
 ];
+let currentGateFilter = 'all';
 
 function renderGateTable() {
     const tbody = document.getElementById('gateTableBody');
     if (!tbody) return;
 
     tbody.innerHTML = '';
-    if (gateActiveVehicles.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted); padding:16px;">No hay vehículos dentro del urbanismo en este momento.</td></tr>`;
+    
+    const filtered = gateActiveVehicles.filter(v => {
+        if (currentGateFilter === 'all') return true;
+        return v.type === currentGateFilter;
+    });
+
+    if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted); padding:16px;">No hay vehículos registrados para este filtro.</td></tr>`;
         return;
     }
 
-    gateActiveVehicles.forEach((v, index) => {
+    filtered.forEach((v) => {
+        const originalIndex = gateActiveVehicles.indexOf(v);
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td><strong style="color:var(--accent-cyan);">${v.plate}</strong></td>
@@ -818,7 +899,7 @@ function renderGateTable() {
             <td><span class="p-badge" style="font-size:0.7rem;">${v.type}</span></td>
             <td style="color:var(--text-muted);">${v.time}</td>
             <td>
-                <button class="btn-small-danger" onclick="exitVehicle(${index})">
+                <button class="btn-small-danger" onclick="exitVehicle(${originalIndex})">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i> Salida
                 </button>
             </td>
@@ -826,6 +907,17 @@ function renderGateTable() {
         tbody.appendChild(tr);
     });
 }
+
+// Filter buttons for gate
+const filterButtons = document.querySelectorAll('.gate-filter-btn');
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentGateFilter = btn.getAttribute('data-filter');
+        renderGateTable();
+    });
+});
 
 function exitVehicle(index) {
     if (index >= 0 && index < gateActiveVehicles.length) {
@@ -852,7 +944,6 @@ if (btnGateEntry) {
             return;
         }
 
-        // Check if plate already has an open entry (Strict Security Rule)
         const isDuplicate = gateActiveVehicles.some(v => v.plate === plate);
         if (isDuplicate) {
             showToast(`${translations[currentLanguage].toast_gate_duplicate} [${plate}]`, 'error');
@@ -915,9 +1006,19 @@ serviceItems.forEach(item => {
     });
 });
 
+// Condominium Payment FIFO simulation
+const btnPayCondo = document.getElementById('btnPayCondo');
+if (btnPayCondo) {
+    btnPayCondo.addEventListener('click', () => {
+        const sel = document.getElementById('condoParcelSelect');
+        const parcelName = sel ? sel.value : 'A-01';
+        showToast(`${translations[currentLanguage].toast_condo_paid} [Parcela ${parcelName}]`);
+    });
+}
+
 
 // ==========================================================================
-// SIMULATOR 4: ROBLE MARKET (E-Commerce & POS)
+// SIMULATOR 4: ROBLE MARKET (E-Commerce, POS & Multi-currency)
 // ==========================================================================
 const robleProducts = [
     { id: 1, nameEs: "Harina PAN de Maíz 1kg", nameEn: "PAN Corn Flour 1kg", price: 1.10, stock: 0, icon: "fa-solid fa-wheat-awn" },
@@ -960,7 +1061,7 @@ function renderRobleProducts() {
             <div class="product-info">
                 <h4>${name}</h4>
                 <div class="product-meta">
-                    <span class="product-price">$${p.price.toFixed(2)}</span>
+                    <span class="product-price">${formatCurrencyPrice(p.price)}</span>
                     <span class="product-stock">${isOutOfStock ? '' : `Stock: ${p.stock}`}</span>
                 </div>
             </div>
@@ -1024,7 +1125,7 @@ function updateCartDOM() {
             row.innerHTML = `
                 <div class="cart-item-desc">
                     <span class="cart-item-name">${name}</span>
-                    <span class="cart-item-unit-price">$${item.price.toFixed(2)} c/u</span>
+                    <span class="cart-item-unit-price">${formatCurrencyPrice(item.price)} c/u</span>
                 </div>
                 <div class="cart-item-ctrls">
                     <button class="btn-qty" onclick="changeQty(${index}, -1)">-</button>
@@ -1044,9 +1145,9 @@ function updateCartDOM() {
     const shipping = (cart.length > 0 && isDelivery) ? deliveryPrice : 0.00;
     const grandTotal = subtotal + shipping;
 
-    if (subtotalEl) subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
-    if (deliveryEl) deliveryEl.innerText = `$${shipping.toFixed(2)}`;
-    if (totalEl) totalEl.innerText = `$${grandTotal.toFixed(2)}`;
+    if (subtotalEl) subtotalEl.innerText = formatCurrencyPrice(subtotal);
+    if (deliveryEl) deliveryEl.innerText = formatCurrencyPrice(shipping);
+    if (totalEl) totalEl.innerText = formatCurrencyPrice(grandTotal);
     if (countEl) countEl.innerText = totalItems;
 }
 
@@ -1071,6 +1172,30 @@ function removeFromCart(index) {
     updateCartDOM();
 }
 window.removeFromCart = removeFromCart;
+
+// Clear Cart button
+const btnClearCart = document.getElementById('btnClearCart');
+if (btnClearCart) {
+    btnClearCart.addEventListener('click', () => {
+        if (cart.length > 0) {
+            cart = [];
+            updateCartDOM();
+            showToast(translations[currentLanguage].toast_cart_cleared);
+        }
+    });
+}
+
+// Currency Switcher buttons
+const currencyButtons = document.querySelectorAll('.currency-btn');
+currencyButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        currencyButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCurrency = btn.getAttribute('data-curr');
+        renderRobleProducts();
+        updateCartDOM();
+    });
+});
 
 // Bind Search Box
 const robleSearch = document.getElementById('robleSearch');
